@@ -1,0 +1,1 @@
+{"modelId":"qwen3.6-27b","chat":[{"role":"user","content":"calc: ( 4 + 17 ) * 2 + 7 ="}],"type":["JACOBIAN_LENS"],"topN":8,"temperature":0,"numCompletionTokens":6,"prependBos":true,"enableThinking":false,"filterNonWordTokens":false,"stream":false}

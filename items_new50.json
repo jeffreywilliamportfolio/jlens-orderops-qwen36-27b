@@ -1,0 +1,920 @@
+{
+ "items": [
+  {
+   "name": "new01",
+   "prompt": "2 * 6 + 10 = ",
+   "prompt_nospace": "2 * 6 + 10 =",
+   "target": "22",
+   "intermediates": [
+    "12",
+    "addition"
+   ],
+   "decoy": "16",
+   "two_digit": true,
+   "single_token_forms": [
+    " Twelve",
+    " twelve",
+    "\u5341\u4e8c"
+   ]
+  },
+  {
+   "name": "new02",
+   "prompt": "12 - 2 * 2 = ",
+   "prompt_nospace": "12 - 2 * 2 =",
+   "target": "8",
+   "intermediates": [
+    "4",
+    "subtraction"
+   ],
+   "decoy": "20",
+   "two_digit": false,
+   "single_token_forms": [
+    " Four",
+    " four",
+    "4",
+    "Four",
+    "four",
+    "\u56db"
+   ]
+  },
+  {
+   "name": "new03",
+   "prompt": "3 * 2 + 8 = ",
+   "prompt_nospace": "3 * 2 + 8 =",
+   "target": "14",
+   "intermediates": [
+    "6",
+    "addition"
+   ],
+   "decoy": "10",
+   "two_digit": false,
+   "single_token_forms": [
+    " Six",
+    " six",
+    "6",
+    "Six",
+    "six",
+    "\u516d"
+   ]
+  },
+  {
+   "name": "new04",
+   "prompt": "7 * (5 + 1) = ",
+   "prompt_nospace": "7 * (5 + 1) =",
+   "target": "42",
+   "intermediates": [
+    "6",
+    "multiplication"
+   ],
+   "decoy": "35",
+   "two_digit": false,
+   "single_token_forms": [
+    " Six",
+    " six",
+    "6",
+    "Six",
+    "six",
+    "\u516d"
+   ]
+  },
+  {
+   "name": "new05",
+   "prompt": "7 - 1 + 7 = ",
+   "prompt_nospace": "7 - 1 + 7 =",
+   "target": "13",
+   "intermediates": [
+    "6",
+    "addition"
+   ],
+   "decoy": "8",
+   "two_digit": false,
+   "single_token_forms": [
+    " Six",
+    " six",
+    "6",
+    "Six",
+    "six",
+    "\u516d"
+   ]
+  },
+  {
+   "name": "new06",
+   "prompt": "(6 + 2) / 2 = ",
+   "prompt_nospace": "(6 + 2) / 2 =",
+   "target": "4",
+   "intermediates": [
+    "8",
+    "division"
+   ],
+   "decoy": "1",
+   "two_digit": false,
+   "single_token_forms": [
+    " Eight",
+    " eight",
+    "8",
+    "Eight",
+    "eight",
+    "\u516b"
+   ]
+  },
+  {
+   "name": "new07",
+   "prompt": "3 - 1 + 9 = ",
+   "prompt_nospace": "3 - 1 + 9 =",
+   "target": "11",
+   "intermediates": [
+    "2",
+    "addition"
+   ],
+   "decoy": "10",
+   "two_digit": false,
+   "single_token_forms": [
+    " Two",
+    " two",
+    "2",
+    "Two",
+    "two",
+    "\u4e8c"
+   ]
+  },
+  {
+   "name": "new08",
+   "prompt": "3 * (7 + 7) = ",
+   "prompt_nospace": "3 * (7 + 7) =",
+   "target": "42",
+   "intermediates": [
+    "14",
+    "multiplication"
+   ],
+   "decoy": "21",
+   "two_digit": true,
+   "single_token_forms": [
+    " fourteen",
+    "\u5341\u56db"
+   ]
+  },
+  {
+   "name": "new09",
+   "prompt": "4 * 2 + 3 = ",
+   "prompt_nospace": "4 * 2 + 3 =",
+   "target": "11",
+   "intermediates": [
+    "8",
+    "addition"
+   ],
+   "decoy": "5",
+   "two_digit": false,
+   "single_token_forms": [
+    " Eight",
+    " eight",
+    "8",
+    "Eight",
+    "eight",
+    "\u516b"
+   ]
+  },
+  {
+   "name": "new10",
+   "prompt": "2 * 7 + 9 = ",
+   "prompt_nospace": "2 * 7 + 9 =",
+   "target": "23",
+   "intermediates": [
+    "14",
+    "addition"
+   ],
+   "decoy": "16",
+   "two_digit": true,
+   "single_token_forms": [
+    " fourteen",
+    "\u5341\u56db"
+   ]
+  },
+  {
+   "name": "new11",
+   "prompt": "11 + 3 * 2 = ",
+   "prompt_nospace": "11 + 3 * 2 =",
+   "target": "17",
+   "intermediates": [
+    "6",
+    "addition"
+   ],
+   "decoy": "28",
+   "two_digit": false,
+   "single_token_forms": [
+    " Six",
+    " six",
+    "6",
+    "Six",
+    "six",
+    "\u516d"
+   ]
+  },
+  {
+   "name": "new12",
+   "prompt": "10 - 3 * 2 = ",
+   "prompt_nospace": "10 - 3 * 2 =",
+   "target": "4",
+   "intermediates": [
+    "6",
+    "subtraction"
+   ],
+   "decoy": "14",
+   "two_digit": false,
+   "single_token_forms": [
+    " Six",
+    " six",
+    "6",
+    "Six",
+    "six",
+    "\u516d"
+   ]
+  },
+  {
+   "name": "new13",
+   "prompt": "(9 - 7) * 7 = ",
+   "prompt_nospace": "(9 - 7) * 7 =",
+   "target": "14",
+   "intermediates": [
+    "2",
+    "multiplication"
+   ],
+   "decoy": "49",
+   "two_digit": false,
+   "single_token_forms": [
+    " Two",
+    " two",
+    "2",
+    "Two",
+    "two",
+    "\u4e8c"
+   ]
+  },
+  {
+   "name": "new14",
+   "prompt": "10 - 2 + 5 = ",
+   "prompt_nospace": "10 - 2 + 5 =",
+   "target": "13",
+   "intermediates": [
+    "8",
+    "addition"
+   ],
+   "decoy": "7",
+   "two_digit": false,
+   "single_token_forms": [
+    " Eight",
+    " eight",
+    "8",
+    "Eight",
+    "eight",
+    "\u516b"
+   ]
+  },
+  {
+   "name": "new15",
+   "prompt": "3 * 12 + 5 = ",
+   "prompt_nospace": "3 * 12 + 5 =",
+   "target": "41",
+   "intermediates": [
+    "36",
+    "addition"
+   ],
+   "decoy": "17",
+   "two_digit": true,
+   "single_token_forms": [
+    "\u4e09\u5341\u516d"
+   ]
+  },
+  {
+   "name": "new16",
+   "prompt": "10 - 7 + 4 = ",
+   "prompt_nospace": "10 - 7 + 4 =",
+   "target": "7",
+   "intermediates": [
+    "3",
+    "addition"
+   ],
+   "decoy": "11",
+   "two_digit": false,
+   "single_token_forms": [
+    " Three",
+    " three",
+    "3",
+    "Three",
+    "three",
+    "\u4e09"
+   ]
+  },
+  {
+   "name": "new17",
+   "prompt": "(10 + 8) * 5 = ",
+   "prompt_nospace": "(10 + 8) * 5 =",
+   "target": "90",
+   "intermediates": [
+    "18",
+    "multiplication"
+   ],
+   "decoy": "40",
+   "two_digit": true,
+   "single_token_forms": [
+    " eighteen",
+    "\u5341\u516b"
+   ]
+  },
+  {
+   "name": "new18",
+   "prompt": "2 * (10 + 2) = ",
+   "prompt_nospace": "2 * (10 + 2) =",
+   "target": "24",
+   "intermediates": [
+    "12",
+    "multiplication"
+   ],
+   "decoy": "20",
+   "two_digit": true,
+   "single_token_forms": [
+    " Twelve",
+    " twelve",
+    "\u5341\u4e8c"
+   ]
+  },
+  {
+   "name": "new19",
+   "prompt": "11 + 4 * 4 = ",
+   "prompt_nospace": "11 + 4 * 4 =",
+   "target": "27",
+   "intermediates": [
+    "16",
+    "addition"
+   ],
+   "decoy": "60",
+   "two_digit": true,
+   "single_token_forms": [
+    " sixteen",
+    "\u5341\u516d"
+   ]
+  },
+  {
+   "name": "new20",
+   "prompt": "(4 + 9) * 5 = ",
+   "prompt_nospace": "(4 + 9) * 5 =",
+   "target": "65",
+   "intermediates": [
+    "13",
+    "multiplication"
+   ],
+   "decoy": "45",
+   "two_digit": true,
+   "single_token_forms": [
+    " thirteen",
+    "\u5341\u4e09"
+   ]
+  },
+  {
+   "name": "new21",
+   "prompt": "(10 - 1) * 6 = ",
+   "prompt_nospace": "(10 - 1) * 6 =",
+   "target": "54",
+   "intermediates": [
+    "9",
+    "multiplication"
+   ],
+   "decoy": "6",
+   "two_digit": false,
+   "single_token_forms": [
+    " Nine",
+    " nine",
+    "9",
+    "Nine",
+    "nine",
+    "\u4e5d"
+   ]
+  },
+  {
+   "name": "new22",
+   "prompt": "3 * (8 + 6) = ",
+   "prompt_nospace": "3 * (8 + 6) =",
+   "target": "42",
+   "intermediates": [
+    "14",
+    "multiplication"
+   ],
+   "decoy": "24",
+   "two_digit": true,
+   "single_token_forms": [
+    " fourteen",
+    "\u5341\u56db"
+   ]
+  },
+  {
+   "name": "new23",
+   "prompt": "3 * (5 + 1) = ",
+   "prompt_nospace": "3 * (5 + 1) =",
+   "target": "18",
+   "intermediates": [
+    "6",
+    "multiplication"
+   ],
+   "decoy": "15",
+   "two_digit": false,
+   "single_token_forms": [
+    " Six",
+    " six",
+    "6",
+    "Six",
+    "six",
+    "\u516d"
+   ]
+  },
+  {
+   "name": "new24",
+   "prompt": "(8 - 7) * 2 = ",
+   "prompt_nospace": "(8 - 7) * 2 =",
+   "target": "2",
+   "intermediates": [
+    "1",
+    "multiplication"
+   ],
+   "decoy": "14",
+   "two_digit": false,
+   "single_token_forms": [
+    " One",
+    " one",
+    "1",
+    "One",
+    "one",
+    "\u4e00"
+   ]
+  },
+  {
+   "name": "new25",
+   "prompt": "8 * (12 + 9) = ",
+   "prompt_nospace": "8 * (12 + 9) =",
+   "target": "168",
+   "intermediates": [
+    "21",
+    "multiplication"
+   ],
+   "decoy": "96",
+   "two_digit": true,
+   "single_token_forms": [
+    "\u4e8c\u5341\u4e00"
+   ]
+  },
+  {
+   "name": "new26",
+   "prompt": "6 * 12 - 8 = ",
+   "prompt_nospace": "6 * 12 - 8 =",
+   "target": "64",
+   "intermediates": [
+    "72",
+    "subtraction"
+   ],
+   "decoy": "4",
+   "two_digit": true,
+   "single_token_forms": [
+    "\u4e03\u5341\u4e8c"
+   ]
+  },
+  {
+   "name": "new27",
+   "prompt": "(9 + 6) * 6 = ",
+   "prompt_nospace": "(9 + 6) * 6 =",
+   "target": "90",
+   "intermediates": [
+    "15",
+    "multiplication"
+   ],
+   "decoy": "36",
+   "two_digit": true,
+   "single_token_forms": [
+    " fifteen",
+    "\u5341\u4e94"
+   ]
+  },
+  {
+   "name": "new28",
+   "prompt": "4 * 7 + 5 = ",
+   "prompt_nospace": "4 * 7 + 5 =",
+   "target": "33",
+   "intermediates": [
+    "28",
+    "addition"
+   ],
+   "decoy": "12",
+   "two_digit": true,
+   "single_token_forms": [
+    "\u4e8c\u5341\u516b"
+   ]
+  },
+  {
+   "name": "new29",
+   "prompt": "(9 + 12) * 4 = ",
+   "prompt_nospace": "(9 + 12) * 4 =",
+   "target": "84",
+   "intermediates": [
+    "21",
+    "multiplication"
+   ],
+   "decoy": "48",
+   "two_digit": true,
+   "single_token_forms": [
+    "\u4e8c\u5341\u4e00"
+   ]
+  },
+  {
+   "name": "new30",
+   "prompt": "6 * 5 - 1 = ",
+   "prompt_nospace": "6 * 5 - 1 =",
+   "target": "29",
+   "intermediates": [
+    "30",
+    "subtraction"
+   ],
+   "decoy": "4",
+   "two_digit": true,
+   "single_token_forms": [
+    " Thirty",
+    " thirty",
+    "Thirty",
+    "\u4e09\u5341"
+   ]
+  },
+  {
+   "name": "new31",
+   "prompt": "5 + 3 * 8 = ",
+   "prompt_nospace": "5 + 3 * 8 =",
+   "target": "29",
+   "intermediates": [
+    "24",
+    "addition"
+   ],
+   "decoy": "64",
+   "two_digit": true,
+   "single_token_forms": [
+    "\u4e8c\u5341\u56db"
+   ]
+  },
+  {
+   "name": "new32",
+   "prompt": "(8 - 2) * 8 = ",
+   "prompt_nospace": "(8 - 2) * 8 =",
+   "target": "48",
+   "intermediates": [
+    "6",
+    "multiplication"
+   ],
+   "decoy": "16",
+   "two_digit": false,
+   "single_token_forms": [
+    " Six",
+    " six",
+    "6",
+    "Six",
+    "six",
+    "\u516d"
+   ]
+  },
+  {
+   "name": "new33",
+   "prompt": "(3 + 6) / 3 = ",
+   "prompt_nospace": "(3 + 6) / 3 =",
+   "target": "3",
+   "intermediates": [
+    "9",
+    "division"
+   ],
+   "decoy": "2",
+   "two_digit": false,
+   "single_token_forms": [
+    " Nine",
+    " nine",
+    "9",
+    "Nine",
+    "nine",
+    "\u4e5d"
+   ]
+  },
+  {
+   "name": "new34",
+   "prompt": "11 + 5 * 8 = ",
+   "prompt_nospace": "11 + 5 * 8 =",
+   "target": "51",
+   "intermediates": [
+    "40",
+    "addition"
+   ],
+   "decoy": "128",
+   "two_digit": true,
+   "single_token_forms": [
+    " Forty",
+    " forty",
+    "\u56db\u5341"
+   ]
+  },
+  {
+   "name": "new35",
+   "prompt": "8 + 9 - 7 = ",
+   "prompt_nospace": "8 + 9 - 7 =",
+   "target": "10",
+   "intermediates": [
+    "17",
+    "subtraction"
+   ],
+   "decoy": "2",
+   "two_digit": true,
+   "single_token_forms": [
+    " seventeen",
+    "\u5341\u4e03"
+   ]
+  },
+  {
+   "name": "new36",
+   "prompt": "(11 - 7) * 7 = ",
+   "prompt_nospace": "(11 - 7) * 7 =",
+   "target": "28",
+   "intermediates": [
+    "4",
+    "multiplication"
+   ],
+   "decoy": "49",
+   "two_digit": false,
+   "single_token_forms": [
+    " Four",
+    " four",
+    "4",
+    "Four",
+    "four",
+    "\u56db"
+   ]
+  },
+  {
+   "name": "new37",
+   "prompt": "9 - 3 + 12 = ",
+   "prompt_nospace": "9 - 3 + 12 =",
+   "target": "18",
+   "intermediates": [
+    "6",
+    "addition"
+   ],
+   "decoy": "15",
+   "two_digit": false,
+   "single_token_forms": [
+    " Six",
+    " six",
+    "6",
+    "Six",
+    "six",
+    "\u516d"
+   ]
+  },
+  {
+   "name": "new38",
+   "prompt": "7 + 3 * 10 = ",
+   "prompt_nospace": "7 + 3 * 10 =",
+   "target": "37",
+   "intermediates": [
+    "30",
+    "addition"
+   ],
+   "decoy": "100",
+   "two_digit": true,
+   "single_token_forms": [
+    " Thirty",
+    " thirty",
+    "Thirty",
+    "\u4e09\u5341"
+   ]
+  },
+  {
+   "name": "new39",
+   "prompt": "9 + 10 - 9 = ",
+   "prompt_nospace": "9 + 10 - 9 =",
+   "target": "10",
+   "intermediates": [
+    "19",
+    "subtraction"
+   ],
+   "decoy": "1",
+   "two_digit": true,
+   "single_token_forms": [
+    " nineteen",
+    "\u5341\u4e5d"
+   ]
+  },
+  {
+   "name": "new40",
+   "prompt": "6 + 12 - 3 = ",
+   "prompt_nospace": "6 + 12 - 3 =",
+   "target": "15",
+   "intermediates": [
+    "18",
+    "subtraction"
+   ],
+   "decoy": "9",
+   "two_digit": true,
+   "single_token_forms": [
+    " eighteen",
+    "\u5341\u516b"
+   ]
+  },
+  {
+   "name": "new41",
+   "prompt": "(12 + 10) * 6 = ",
+   "prompt_nospace": "(12 + 10) * 6 =",
+   "target": "132",
+   "intermediates": [
+    "22",
+    "multiplication"
+   ],
+   "decoy": "60",
+   "two_digit": true,
+   "single_token_forms": [
+    "\u4e8c\u5341\u4e8c"
+   ]
+  },
+  {
+   "name": "new42",
+   "prompt": "(12 - 8) * 9 = ",
+   "prompt_nospace": "(12 - 8) * 9 =",
+   "target": "36",
+   "intermediates": [
+    "4",
+    "multiplication"
+   ],
+   "decoy": "72",
+   "two_digit": false,
+   "single_token_forms": [
+    " Four",
+    " four",
+    "4",
+    "Four",
+    "four",
+    "\u56db"
+   ]
+  },
+  {
+   "name": "new43",
+   "prompt": "9 + 5 - 2 = ",
+   "prompt_nospace": "9 + 5 - 2 =",
+   "target": "12",
+   "intermediates": [
+    "14",
+    "subtraction"
+   ],
+   "decoy": "3",
+   "two_digit": true,
+   "single_token_forms": [
+    " fourteen",
+    "\u5341\u56db"
+   ]
+  },
+  {
+   "name": "new44",
+   "prompt": "(3 + 2) * 8 = ",
+   "prompt_nospace": "(3 + 2) * 8 =",
+   "target": "40",
+   "intermediates": [
+    "5",
+    "multiplication"
+   ],
+   "decoy": "16",
+   "two_digit": false,
+   "single_token_forms": [
+    " Five",
+    " five",
+    "5",
+    "Five",
+    "five",
+    "\u4e94"
+   ]
+  },
+  {
+   "name": "new45",
+   "prompt": "12 - 5 + 9 = ",
+   "prompt_nospace": "12 - 5 + 9 =",
+   "target": "16",
+   "intermediates": [
+    "7",
+    "addition"
+   ],
+   "decoy": "14",
+   "two_digit": false,
+   "single_token_forms": [
+    " Seven",
+    " seven",
+    "7",
+    "Seven",
+    "seven",
+    "\u4e03"
+   ]
+  },
+  {
+   "name": "new46",
+   "prompt": "10 + 10 * 3 = ",
+   "prompt_nospace": "10 + 10 * 3 =",
+   "target": "40",
+   "intermediates": [
+    "30",
+    "addition"
+   ],
+   "decoy": "60",
+   "two_digit": true,
+   "single_token_forms": [
+    " Thirty",
+    " thirty",
+    "Thirty",
+    "\u4e09\u5341"
+   ]
+  },
+  {
+   "name": "new47",
+   "prompt": "3 + 11 - 3 = ",
+   "prompt_nospace": "3 + 11 - 3 =",
+   "target": "11",
+   "intermediates": [
+    "14",
+    "subtraction"
+   ],
+   "decoy": "8",
+   "two_digit": true,
+   "single_token_forms": [
+    " fourteen",
+    "\u5341\u56db"
+   ]
+  },
+  {
+   "name": "new48",
+   "prompt": "(4 + 2) / 2 = ",
+   "prompt_nospace": "(4 + 2) / 2 =",
+   "target": "3",
+   "intermediates": [
+    "6",
+    "division"
+   ],
+   "decoy": "1",
+   "two_digit": false,
+   "single_token_forms": [
+    " Six",
+    " six",
+    "6",
+    "Six",
+    "six",
+    "\u516d"
+   ]
+  },
+  {
+   "name": "new49",
+   "prompt": "2 + 2 - 1 = ",
+   "prompt_nospace": "2 + 2 - 1 =",
+   "target": "3",
+   "intermediates": [
+    "4",
+    "subtraction"
+   ],
+   "decoy": "1",
+   "two_digit": false,
+   "single_token_forms": [
+    " Four",
+    " four",
+    "4",
+    "Four",
+    "four",
+    "\u56db"
+   ]
+  },
+  {
+   "name": "new50",
+   "prompt": "6 - 2 * 2 = ",
+   "prompt_nospace": "6 - 2 * 2 =",
+   "target": "2",
+   "intermediates": [
+    "4",
+    "subtraction"
+   ],
+   "decoy": "8",
+   "two_digit": false,
+   "single_token_forms": [
+    " Four",
+    " four",
+    "4",
+    "Four",
+    "four",
+    "\u56db"
+   ]
+  }
+ ],
+ "seed": 20260904,
+ "n": 50,
+ "tokenizer": "Qwen/Qwen3.6-27B",
+ "rules": [
+  "a,b,c in 1..12; 10 templates, each used at most 6 times",
+  "intermediate, target, decoy positive integers, pairwise distinct",
+  "intermediate < 100, target < 200",
+  "intermediate is not a literal number in the prompt",
+  "single-digit intermediate: its digit appears nowhere in the prompt or the target",
+  "two-digit intermediate: at least one single-token form (CJK numeral or English word, with or without leading space) exists in the Qwen3.6-27B tokenizer",
+  "prompt not in the paper's 55",
+  "25 two-digit + 25 single-digit intermediates",
+  "prompt_nospace = same prompt without the trailing space (position factor)"
+ ]
+}
