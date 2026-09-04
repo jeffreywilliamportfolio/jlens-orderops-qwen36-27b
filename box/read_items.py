@@ -282,13 +282,43 @@ def verify_capture(lm, tok) -> dict:
 
 
 # --------------------------------------------------------------------------- text metrics (Addendum 2)
+_WORD2INT = {"zero":0,"one":1,"two":2,"three":3,"four":4,"five":5,"six":6,"seven":7,"eight":8,"nine":9,"ten":10,"eleven":11,"twelve":12,
+             "thirteen":13,"fourteen":14,"fifteen":15,"sixteen":16,"seventeen":17,"eighteen":18,"nineteen":19,"twenty":20,"thirty":30,
+             "forty":40,"fifty":50,"sixty":60,"seventy":70,"eighty":80,"ninety":90}
+
+
+def to_int(x: str):
+    """Digit string or English number word ('fourteen', 'twenty-one', 'twenty one') -> int; None if neither."""
+    x = x.strip().lower().replace("-", " ")
+    if re.fullmatch(r"-?\d+", x):
+        return int(x)
+    parts = x.split()
+    if parts and all(w in _WORD2INT for w in parts):
+        v = 0
+        for w in parts:
+            v += _WORD2INT[w]
+        return v
+    return None
+
+
+_WORDNUM_RE = re.compile(r"\b(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|"
+                         r"seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:[- ](?:one|two|three|four|five|six|seven|eight|nine))?\b", re.I)
+
+
+def _number_matches(text: str):
+    """(position, int) for every standalone integer OR English number word in text, in order of appearance."""
+    found = [(m.start(), int(m.group(1))) for m in NUM_RE.finditer(text)]
+    found += [(m.start(), to_int(m.group(0))) for m in _WORDNUM_RE.finditer(text)]
+    return sorted((pos, v) for pos, v in found if v is not None)
+
+
 def numbers_in(text: str) -> list[int]:
-    return [int(x) for x in NUM_RE.findall(text)]
+    return [v for _, v in _number_matches(text)]
 
 
 def first_number(text: str):
-    m = NUM_RE.search(text)
-    return int(m.group(1)) if m else None
+    ms = _number_matches(text)
+    return ms[0][1] if ms else None
 
 
 def leaks(text: str, intermediate: int, target: int) -> bool:
@@ -316,6 +346,7 @@ def main():
     ap.add_argument("--temperature", type=float, default=0.8)
     ap.add_argument("--top-p", type=float, default=0.95)
     ap.add_argument("--skip-sampling", action="store_true")
+    ap.add_argument("--resume", action="store_true", help="skip prompts whose outputs already exist in --out")
     ap.add_argument("--limit", type=int, default=None, help="only the first N items (smoke test)")
     ap.add_argument("--hash-shards", action="store_true", help="also sha256 every model shard into the manifest (minutes)")
     ap.add_argument("--dry-run", action="store_true")
@@ -500,6 +531,9 @@ def main():
     for pi, p in enumerate(prepared):
         it, variant, ids = p["item"], p["variant"], p["ids"]
         tag = f"{it['set']}_{it['name']}_{variant}"
+        if args.resume and all(os.path.exists(os.path.join(args.out, n, f"{tag}.json")) for n in list(lenses) + ["continuations"]):
+            log(f"[{pi+1}/{len(prepared)}] {tag:40s} skip (resume: outputs exist)")
+            continue
         t0 = time.time()
         x = torch.tensor([ids], dtype=torch.long, device=dev)
         acts = residuals(x, layer_list)                                   # ONE forward pass; both lenses read it
@@ -513,7 +547,7 @@ def main():
         samples = [] if args.skip_sampling else generate(ids, args.sample_max_new, seeds=list(range(args.n_samples)))
         for s_i, s in enumerate(samples):
             s["seed"] = s_i
-        tgt, inter = int(it["target"]), int(it["num"])
+        tgt, inter = to_int(str(it["target"])), to_int(str(it["num"]))
         greedy["first_number"] = first_number(greedy["text"]); greedy["correct"] = greedy["first_number"] == tgt
         for s in samples:
             s["first_number"] = first_number(s["text"]); s["asserts_target"] = s["first_number"] == tgt; s["leaks"] = leaks(s["text"], inter, tgt)
