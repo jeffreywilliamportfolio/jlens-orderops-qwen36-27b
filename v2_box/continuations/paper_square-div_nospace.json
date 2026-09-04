@@ -1,0 +1,28 @@
+{
+ "set": "paper",
+ "name": "square-div",
+ "variant": "nospace",
+ "prompt": "(12 / 4)^2 =",
+ "target": "9",
+ "intermediate": "3",
+ "greedy": {
+  "ids": [
+   220,
+   16,
+   19,
+   19,
+   593,
+   220
+  ],
+  "text": " 144 / ",
+  "stopped_at": null,
+  "first_number": 144,
+  "correct": false,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new03",
+ "variant": "space",
+ "prompt": "3 * 2 + 8 = ",
+ "target": "14",
+ "intermediate": "6",
+ "greedy": {
+  "ids": [
+   16,
+   19,
+   198,
+   16,
+   19,
+   348
+  ],
+  "text": "14\n14 *",
+  "stopped_at": null,
+  "first_number": 14,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

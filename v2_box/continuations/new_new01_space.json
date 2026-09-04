@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new01",
+ "variant": "space",
+ "prompt": "2 * 6 + 10 = ",
+ "target": "22",
+ "intermediate": "12",
+ "greedy": {
+  "ids": [
+   17,
+   17,
+   13,
+   271,
+   71093,
+   12305
+  ],
+  "text": "22.\n\n```python",
+  "stopped_at": null,
+  "first_number": 22,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

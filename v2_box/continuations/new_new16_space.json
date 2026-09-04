@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new16",
+ "variant": "space",
+ "prompt": "10 - 7 + 4 = ",
+ "target": "7",
+ "intermediate": "3",
+ "greedy": {
+  "ids": [
+   22,
+   13,
+   271,
+   760,
+   4087,
+   369
+  ],
+  "text": "7.\n\nThe answer is",
+  "stopped_at": null,
+  "first_number": 7,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

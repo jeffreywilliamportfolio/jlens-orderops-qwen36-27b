@@ -1,0 +1,28 @@
+{
+ "set": "paper",
+ "name": "parens-add-mult",
+ "variant": "nospace",
+ "prompt": "(2 + 3) * 4 =",
+ "target": "20",
+ "intermediate": "5",
+ "greedy": {
+  "ids": [
+   220,
+   17,
+   15,
+   198,
+   17,
+   478
+  ],
+  "text": " 20\n2 +",
+  "stopped_at": null,
+  "first_number": 20,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

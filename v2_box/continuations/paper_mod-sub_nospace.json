@@ -1,0 +1,28 @@
+{
+ "set": "paper",
+ "name": "mod-sub",
+ "variant": "nospace",
+ "prompt": "(12 - 3) % 4 =",
+ "target": "1",
+ "intermediate": "9",
+ "greedy": {
+  "ids": [
+   220,
+   24,
+   984,
+   220,
+   19,
+   283
+  ],
+  "text": " 9 % 4 =",
+  "stopped_at": null,
+  "first_number": 9,
+  "correct": false,
+  "leaks": true
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": true,
+ "greedy_writes_intermediate_first": true,
+ "admissible": false
+}

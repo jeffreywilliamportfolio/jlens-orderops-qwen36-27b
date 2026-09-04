@@ -1,0 +1,28 @@
+{
+ "set": "paper",
+ "name": "square-mult",
+ "variant": "space",
+ "prompt": "(1 * 4)^2 = ",
+ "target": "16",
+ "intermediate": "4",
+ "greedy": {
+  "ids": [
+   16,
+   21,
+   198,
+   7,
+   17,
+   348
+  ],
+  "text": "16\n(2 *",
+  "stopped_at": null,
+  "first_number": 16,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

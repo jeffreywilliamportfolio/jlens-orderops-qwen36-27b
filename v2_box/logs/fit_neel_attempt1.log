@@ -1,0 +1,167 @@
+[2026-09-04T19:55:10Z] tokenizer /workspace/models/qwen36-27b: len 248077, bos None, eos 248046
+[2026-09-04T19:55:10Z] selecting 25 prompts from NeelNanda/pile-10k (>= 132 tokens, truncated to 128) …
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Generating train split:   0%|          | 0/10000 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 10000/10000 [00:00<00:00, 70207.31 examples/s]Generating train split: 100%|██████████| 10000/10000 [00:00<00:00, 69879.33 examples/s]
+[2026-09-04T19:55:14Z]   doc     0 Pile-CC        full=  3005 used=128  'It is done, and submitted. You can play “Surv'
+[2026-09-04T19:55:14Z]   doc     1 Github         full=  1127 used=128  '<?xml version="1.0" encoding="UTF-'
+[2026-09-04T19:55:14Z]   doc     2 OpenWebText2   full=   262 used=128  'Article content\\n\\nHuman behavior has a tremendous impact on investing —'
+[2026-09-04T19:55:14Z]   doc     4 Pile-CC        full=   367 used=128  'About Grand Slam Fishing Charters\\n\\nAs a family owned business'
+[2026-09-04T19:55:14Z]   doc     5 StackExchange  full=   491 used=128  'Q:\\n\\nWhy was Mundungus banned from the Hog'
+[2026-09-04T19:55:14Z]   doc     6 Pile-CC        full=   840 used=128  'Working Women, Special Provision and the Debate on Equality\\n\\nThere'
+[2026-09-04T19:55:14Z]   doc     7 StackExchange  full=   233 used=128  'Q:\\n\\nUsing M-Test to show you can differentiate'
+[2026-09-04T19:55:14Z]   doc     8 Pile-CC        full=   228 used=128  'Jeanette Sawyer Cohen, PhD, clinical assistant professor of psychology'
+[2026-09-04T19:55:14Z]   doc     9 StackExchange  full=   280 used=128  "Q:\\n\\nWhat's the simplest way to pass a file"
+[2026-09-04T19:55:14Z]   doc    10 Wikipedia (en) full=   602 used=128  'Major League Baseball All-Century Team\\n\\nIn 1'
+[2026-09-04T19:55:14Z]   doc    12 PubMed Abstracts full=   323 used=128  'PCI Alternative Using Sustained Exercise (PAUSE): Rationale'
+[2026-09-04T19:55:14Z]   doc    13 StackExchange  full=   615 used=128  'Q:\\n\\n¿Porqué en este loop de JavaScript la'
+[2026-09-04T19:55:14Z]   doc    14 Pile-CC        full=   152 used=128  'Running\\n\\nStat\\n\\nDinner with people is always better than'
+[2026-09-04T19:55:14Z]   doc    15 OpenWebText2   full=   358 used=128  "Monday's are never fun...except when it's West Ham"
+[2026-09-04T19:55:14Z]   doc    16 PubMed Abstracts full=   177 used=128  'TiO2 nanotubes for bone regeneration.\\nNano'
+[2026-09-04T19:55:14Z]   doc    17 OpenWebText2   full=   647 used=128  'Benjamin Lok describes how the robot butt sensors work 2'
+[2026-09-04T19:55:14Z]   doc    18 USPTO Backgrounds full=   333 used=128  'In general, absorbent articles should comfortably fit the body of'
+[2026-09-04T19:55:14Z]   doc    19 Pile-CC        full=  1786 used=128  'jOOQ on The ORM Foundation?\\n\\nI am the'
+[2026-09-04T19:55:14Z]   doc    21 PubMed Abstracts full=   308 used=128  'Examination of factors affecting gait properties in healthy older adults'
+[2026-09-04T19:55:14Z]   doc    22 Pile-CC        full=  4218 used=128  "I've learned the nitrogen vacancies used in Memristors are"
+[2026-09-04T19:55:14Z]   doc    23 Pile-CC        full=   170 used=128  'Volunteer Services\\n\\nVolunteer Services\\n\\nAs Charleston Area Medical'
+[2026-09-04T19:55:14Z]   doc    24 StackExchange  full=   214 used=128  'Q:\\n\\nPython: My return variable is always None\\n\\n'
+[2026-09-04T19:55:14Z]   doc    25 PubMed Abstracts full=   331 used=128  'Formulation and application of a biosurfactant from Bac'
+[2026-09-04T19:55:14Z]   doc    26 Pile-CC        full=   340 used=128  'Playing back a meeting recording\\n\\n…Let me show you how'
+[2026-09-04T19:55:14Z]   doc    27 OpenWebText2   full=   209 used=128  'A&E’s hit reality TV show was ensnared in'
+[2026-09-04T19:55:14Z] wrote /workspace/out/lens_neel/prompts_selected.json  (docs scanned 28; corpus loader datasets.load_dataset)
+[2026-09-04T19:55:14Z] loading /workspace/models/qwen36-27b in bfloat16 on cuda …
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/851 [00:00<?, ?it/s]Loading weights:   0%|          | 1/851 [00:00<02:00,  7.04it/s]Loading weights:   0%|          | 2/851 [00:00<02:37,  5.39it/s]Loading weights:   2%|▏         | 21/851 [00:00<00:14, 56.78it/s]Loading weights:   4%|▍         | 37/851 [00:00<00:10, 78.64it/s]Loading weights:   5%|▌         | 46/851 [00:00<00:10, 80.20it/s]Loading weights:   7%|▋         | 62/851 [00:00<00:07, 99.56it/s]Loading weights:   9%|▉         | 76/851 [00:00<00:07, 108.79it/s]Loading weights:  11%|█         | 94/851 [00:01<00:06, 122.12it/s]Loading weights:  13%|█▎        | 107/851 [00:01<00:06, 112.11it/s]Loading weights:  15%|█▌        | 129/851 [00:01<00:05, 136.65it/s]Loading weights:  17%|█▋        | 144/851 [00:01<00:05, 135.77it/s]Loading weights:  19%|█▊        | 158/851 [00:01<00:06, 110.17it/s]Loading weights:  20%|██        | 173/851 [00:01<00:05, 114.44it/s]Loading weights:  22%|██▏       | 187/851 [00:01<00:05, 115.19it/s]Loading weights:  24%|██▎       | 201/851 [00:01<00:05, 118.21it/s]Loading weights:  25%|██▌       | 214/851 [00:02<00:05, 110.85it/s]Loading weights:  27%|██▋       | 226/851 [00:02<00:05, 111.36it/s]Loading weights:  28%|██▊       | 240/851 [00:02<00:05, 116.27it/s]Loading weights:  30%|██▉       | 254/851 [00:02<00:05, 119.07it/s]Loading weights:  31%|███▏      | 267/851 [00:02<00:05, 109.86it/s]Loading weights:  33%|███▎      | 280/851 [00:02<00:05, 113.09it/s]Loading weights:  35%|███▍      | 295/851 [00:02<00:04, 122.84it/s]Loading weights:  36%|███▌      | 308/851 [00:02<00:04, 119.94it/s]Loading weights:  38%|███▊      | 321/851 [00:02<00:04, 122.19it/s]Loading weights:  39%|███▉      | 334/851 [00:03<00:04, 119.18it/s]Loading weights:  41%|████      | 347/851 [00:03<00:04, 108.29it/s]Loading weights:  42%|████▏     | 360/851 [00:03<00:04, 100.72it/s]Loading weights:  44%|████▎     | 371/851 [00:03<00:04, 97.07it/s] Loading weights:  46%|████▌     | 390/851 [00:03<00:03, 115.30it/s]Loading weights:  48%|████▊     | 412/851 [00:03<00:03, 135.33it/s]Loading weights:  50%|█████     | 426/851 [00:03<00:03, 125.30it/s]Loading weights:  52%|█████▏    | 445/851 [00:04<00:02, 135.83it/s]Loading weights:  54%|█████▍    | 459/851 [00:04<00:02, 135.94it/s]Loading weights:  56%|█████▌    | 473/851 [00:04<00:03, 123.47it/s]Loading weights:  58%|█████▊    | 491/851 [00:04<00:02, 130.57it/s]Loading weights:  59%|█████▉    | 506/851 [00:04<00:02, 125.38it/s]Loading weights:  61%|██████    | 519/851 [00:05<00:11, 29.27it/s] Loading weights:  63%|██████▎   | 539/851 [00:06<00:07, 42.36it/s]Loading weights:  65%|██████▌   | 556/851 [00:06<00:05, 54.43it/s]Loading weights:  67%|██████▋   | 572/851 [00:06<00:04, 66.78it/s]Loading weights:  69%|██████▉   | 586/851 [00:06<00:03, 75.78it/s]Loading weights:  71%|███████   | 604/851 [00:06<00:02, 93.57it/s]Loading weights:  73%|███████▎  | 623/851 [00:06<00:02, 107.73it/s]Loading weights:  75%|███████▍  | 638/851 [00:06<00:01, 115.66it/s]Loading weights:  77%|███████▋  | 658/851 [00:06<00:01, 133.20it/s]Loading weights:  80%|███████▉  | 677/851 [00:06<00:01, 144.71it/s]Loading weights:  82%|████████▏ | 694/851 [00:07<00:01, 143.13it/s]Loading weights:  84%|████████▍ | 715/851 [00:07<00:00, 158.08it/s]Loading weights:  86%|████████▌ | 732/851 [00:07<00:00, 145.72it/s]Loading weights:  89%|████████▊ | 754/851 [00:07<00:00, 163.55it/s]Loading weights:  91%|█████████ | 772/851 [00:07<00:00, 153.21it/s]Loading weights:  93%|█████████▎| 789/851 [00:08<00:00, 64.19it/s] Loading weights:  95%|█████████▌| 810/851 [00:08<00:00, 81.14it/s]Loading weights:  97%|█████████▋| 829/851 [00:08<00:00, 97.74it/s]Loading weights:  99%|█████████▉| 845/851 [00:08<00:00, 98.87it/s]Loading weights: 100%|██████████| 851/851 [00:08<00:00, 99.13it/s]
+[2026-09-04T19:55:26Z] capture check: 65 hidden_states; hidden_states[l+1]==block-l output OK; final entry differs from hooked block-63 output (post-norm: differs expected)
+[2026-09-04T19:55:26Z] wrapped HFLensModel(Qwen3_5ForCausalLM, n_layers=64, d_model=5120); target_layer -2 -> block 62 of 64 (source layers 0..61); GPU mem after load 50.1 GiB
+[2026-09-04T19:55:26] INFO jlens.fitting: fit: n_layers=64 d_model=5120, fitting 62 source layers (target=L62) on 25 prompts
+[2026-09-04T19:55:26Z] prompt 1/25 start pile10k:0 (128 ids) GPU 50.1 GiB alloc / 50.1 peak
+[2026-09-04T19:55:28Z] CUDA OOM at dim_batch 8; falling back to 4 (resumes from checkpoint)
+[2026-09-04T19:55:28] INFO jlens.fitting: fit: n_layers=64 d_model=5120, fitting 62 source layers (target=L62) on 25 prompts
+[2026-09-04T19:55:28Z] prompt 1/25 start pile10k:0 (128 ids) GPU 94.1 GiB alloc / 94.1 peak
+Traceback (most recent call last):
+  File "/workspace/orderops/box/fit_neel_recipe.py", line 284, in main
+    lens = run(args.dim_batch)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/orderops/box/fit_neel_recipe.py", line 278, in run
+    return jlens.fit(lm, Timed(prompts), target_layer=args.target_layer, dim_batch=dim_batch,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/jacobian-lens/jlens/fitting.py", line 335, in fit
+    per_prompt_J, seq_len, n_valid = jacobian_for_prompt(
+                                     ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/jacobian-lens/jlens/fitting.py", line 165, in jacobian_for_prompt
+    model.forward(replicated_ids)
+  File "/workspace/jacobian-lens/jlens/hf.py", line 164, in forward
+    return self._text_module(input_ids=input_ids, use_cache=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/utils/output_capturing.py", line 262, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 1212, in forward
+    hidden_states = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/modeling_layers.py", line 110, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1885, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1833, in inner
+    result = forward_call(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 788, in forward
+    hidden_states = self.linear_attn(
+                    ^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/integrations/accelerate.py", line 941, in wrapped
+    output = forward_func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 539, in forward
+    core_attn_out, last_recurrent_state = self.chunk_gated_delta_rule(
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 263, in torch_chunk_gated_delta_rule
+    key = l2norm(key, dim=-1, eps=1e-6)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 244, in l2norm
+    inv_norm = torch.rsqrt((x * x).sum(dim=dim, keepdim=True) + eps)
+                            ~~^~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 12.00 MiB. GPU 0 has a total capacity of 94.97 GiB of which 13.50 MiB is free. Including non-PyTorch memory, this process has 94.95 GiB memory in use. Of the allocated memory 94.11 GiB is allocated by PyTorch, and 203.34 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/orderops/box/fit_neel_recipe.py", line 320, in <module>
+    main()
+  File "/workspace/orderops/box/fit_neel_recipe.py", line 290, in main
+    lens = run(args.dim_batch_fallback)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/orderops/box/fit_neel_recipe.py", line 278, in run
+    return jlens.fit(lm, Timed(prompts), target_layer=args.target_layer, dim_batch=dim_batch,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/jacobian-lens/jlens/fitting.py", line 335, in fit
+    per_prompt_J, seq_len, n_valid = jacobian_for_prompt(
+                                     ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/jacobian-lens/jlens/fitting.py", line 165, in jacobian_for_prompt
+    model.forward(replicated_ids)
+  File "/workspace/jacobian-lens/jlens/hf.py", line 164, in forward
+    return self._text_module(input_ids=input_ids, use_cache=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/utils/output_capturing.py", line 262, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 1212, in forward
+    hidden_states = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/modeling_layers.py", line 110, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1885, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1833, in inner
+    result = forward_call(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 784, in forward
+    hidden_states = self.input_layernorm(hidden_states)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 750, in forward
+    output = self._norm(x.float())
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 747, in _norm
+    return x * torch.rsqrt(x.pow(2).mean(-1, keepdim=True) + self.eps)
+                           ^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 10.00 MiB. GPU 0 has a total capacity of 94.97 GiB of which 3.50 MiB is free. Including non-PyTorch memory, this process has 94.96 GiB memory in use. Of the allocated memory 94.13 GiB is allocated by PyTorch, and 197.57 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

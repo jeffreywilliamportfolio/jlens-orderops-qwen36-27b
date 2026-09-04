@@ -1,0 +1,28 @@
+{
+ "set": "paper",
+ "name": "div-div-left",
+ "variant": "space",
+ "prompt": "24 / 4 / 2 = ",
+ "target": "3",
+ "intermediate": "6",
+ "greedy": {
+  "ids": [
+   16,
+   17,
+   593,
+   220,
+   17,
+   283
+  ],
+  "text": "12 / 2 =",
+  "stopped_at": null,
+  "first_number": 12,
+  "correct": false,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

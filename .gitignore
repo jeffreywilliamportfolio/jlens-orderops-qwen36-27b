@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 .DS_Store
 /box/**/*.log
+v2_box/lens_neel/*.pt

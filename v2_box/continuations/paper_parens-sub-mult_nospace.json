@@ -1,0 +1,28 @@
+{
+ "set": "paper",
+ "name": "parens-sub-mult",
+ "variant": "nospace",
+ "prompt": "(7 - 3) * 2 = 8. (9 - 4) * 3 =",
+ "target": "15",
+ "intermediate": "5",
+ "greedy": {
+  "ids": [
+   220,
+   16,
+   20,
+   13,
+   318,
+   16
+  ],
+  "text": " 15. (1",
+  "stopped_at": null,
+  "first_number": 15,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

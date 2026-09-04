@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new45",
+ "variant": "space",
+ "prompt": "12 - 5 + 9 = ",
+ "target": "16",
+ "intermediate": "7",
+ "greedy": {
+  "ids": [
+   16,
+   21,
+   13,
+   271,
+   16,
+   17
+  ],
+  "text": "16.\n\n12",
+  "stopped_at": null,
+  "first_number": 16,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

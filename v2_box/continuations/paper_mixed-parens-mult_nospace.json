@@ -1,0 +1,28 @@
+{
+ "set": "paper",
+ "name": "mixed-parens-mult",
+ "variant": "nospace",
+ "prompt": "Calculate: (1 plus 4) times 3 equals",
+ "target": "15",
+ "intermediate": "5",
+ "greedy": {
+  "ids": [
+   30,
+   271,
+   1206,
+   11290,
+   411,
+   11
+  ],
+  "text": "?\n\nTo solve this,",
+  "stopped_at": null,
+  "first_number": null,
+  "correct": false,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

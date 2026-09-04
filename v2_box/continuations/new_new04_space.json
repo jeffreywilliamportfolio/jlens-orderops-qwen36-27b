@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new04",
+ "variant": "space",
+ "prompt": "7 * (5 + 1) = ",
+ "target": "42",
+ "intermediate": "6",
+ "greedy": {
+  "ids": [
+   19,
+   17,
+   198,
+   22,
+   348,
+   318
+  ],
+  "text": "42\n7 * (",
+  "stopped_at": null,
+  "first_number": 42,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

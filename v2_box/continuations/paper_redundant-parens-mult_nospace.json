@@ -1,0 +1,28 @@
+{
+ "set": "paper",
+ "name": "redundant-parens-mult",
+ "variant": "nospace",
+ "prompt": "(2 * 3) + 5 =",
+ "target": "11",
+ "intermediate": "6",
+ "greedy": {
+  "ids": [
+   220,
+   16,
+   16,
+   198,
+   17,
+   348
+  ],
+  "text": " 11\n2 *",
+  "stopped_at": null,
+  "first_number": 11,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

@@ -1,0 +1,28 @@
+{
+ "set": "paper",
+ "name": "sub-add-left-right",
+ "variant": "nospace",
+ "prompt": "15 - 5 + 3 =",
+ "target": "13",
+ "intermediate": "10",
+ "greedy": {
+  "ids": [
+   907,
+   271,
+   99959,
+   103808,
+   97792,
+   96488
+  ],
+  "text": " ?\n\n让我们逐步计算这个",
+  "stopped_at": null,
+  "first_number": null,
+  "correct": false,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

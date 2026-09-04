@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new20",
+ "variant": "space",
+ "prompt": "(4 + 9) * 5 = ",
+ "target": "65",
+ "intermediate": "13",
+ "greedy": {
+  "ids": [
+   21,
+   20,
+   13,
+   198,
+   7,
+   19
+  ],
+  "text": "65.\n(4",
+  "stopped_at": null,
+  "first_number": 65,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

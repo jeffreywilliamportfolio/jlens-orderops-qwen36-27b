@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new17",
+ "variant": "nospace",
+ "prompt": "(10 + 8) * 5 =",
+ "target": "90",
+ "intermediate": "18",
+ "greedy": {
+  "ids": [
+   220,
+   24,
+   15,
+   198,
+   16,
+   15
+  ],
+  "text": " 90\n10",
+  "stopped_at": null,
+  "first_number": 90,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

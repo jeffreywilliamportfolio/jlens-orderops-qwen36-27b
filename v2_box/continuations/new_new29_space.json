@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new29",
+ "variant": "space",
+ "prompt": "(9 + 12) * 4 = ",
+ "target": "84",
+ "intermediate": "21",
+ "greedy": {
+  "ids": [
+   23,
+   19,
+   13,
+   198,
+   7,
+   24
+  ],
+  "text": "84.\n(9",
+  "stopped_at": null,
+  "first_number": 84,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

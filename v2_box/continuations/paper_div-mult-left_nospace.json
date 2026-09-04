@@ -1,0 +1,28 @@
+{
+ "set": "paper",
+ "name": "div-mult-left",
+ "variant": "nospace",
+ "prompt": "12 / 3 * 2 =",
+ "target": "8",
+ "intermediate": "4",
+ "greedy": {
+  "ids": [
+   220,
+   23,
+   198,
+   16,
+   17,
+   593
+  ],
+  "text": " 8\n12 /",
+  "stopped_at": null,
+  "first_number": 8,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

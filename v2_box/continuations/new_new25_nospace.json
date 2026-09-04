@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new25",
+ "variant": "nospace",
+ "prompt": "8 * (12 + 9) =",
+ "target": "168",
+ "intermediate": "21",
+ "greedy": {
+  "ids": [
+   220,
+   16,
+   21,
+   23,
+   198,
+   16
+  ],
+  "text": " 168\n1",
+  "stopped_at": null,
+  "first_number": 168,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

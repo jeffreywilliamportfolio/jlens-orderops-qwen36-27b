@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new35",
+ "variant": "nospace",
+ "prompt": "8 + 9 - 7 =",
+ "target": "10",
+ "intermediate": "17",
+ "greedy": {
+  "ids": [
+   907,
+   271,
+   99959,
+   103808,
+   97792,
+   96488
+  ],
+  "text": " ?\n\n让我们逐步计算这个",
+  "stopped_at": null,
+  "first_number": null,
+  "correct": false,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

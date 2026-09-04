@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new31",
+ "variant": "nospace",
+ "prompt": "5 + 3 * 8 =",
+ "target": "29",
+ "intermediate": "24",
+ "greedy": {
+  "ids": [
+   907,
+   271,
+   1206,
+   11290,
+   279,
+   7258
+  ],
+  "text": " ?\n\nTo solve the expression",
+  "stopped_at": null,
+  "first_number": null,
+  "correct": false,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

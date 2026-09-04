@@ -1,0 +1,28 @@
+{
+ "set": "paper",
+ "name": "nested-sub-div-mult",
+ "variant": "nospace",
+ "prompt": "((10 - 4) / 2) * 5 =",
+ "target": "15",
+ "intermediate": "3",
+ "greedy": {
+  "ids": [
+   220,
+   16,
+   20,
+   198,
+   1148,
+   16
+  ],
+  "text": " 15\n((1",
+  "stopped_at": null,
+  "first_number": 15,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

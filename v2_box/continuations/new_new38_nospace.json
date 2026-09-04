@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new38",
+ "variant": "nospace",
+ "prompt": "7 + 3 * 10 =",
+ "target": "37",
+ "intermediate": "30",
+ "greedy": {
+  "ids": [
+   907,
+   271,
+   1206,
+   11290,
+   279,
+   7258
+  ],
+  "text": " ?\n\nTo solve the expression",
+  "stopped_at": null,
+  "first_number": null,
+  "correct": false,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

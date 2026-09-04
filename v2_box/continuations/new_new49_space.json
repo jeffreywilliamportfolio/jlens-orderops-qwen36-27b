@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new49",
+ "variant": "space",
+ "prompt": "2 + 2 - 1 = ",
+ "target": "3",
+ "intermediate": "4",
+ "greedy": {
+  "ids": [
+   18,
+   13,
+   271,
+   13962,
+   220,
+   16
+  ],
+  "text": "3.\n\n### 1",
+  "stopped_at": null,
+  "first_number": 3,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

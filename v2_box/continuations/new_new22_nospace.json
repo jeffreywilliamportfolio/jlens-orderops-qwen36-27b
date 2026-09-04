@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new22",
+ "variant": "nospace",
+ "prompt": "3 * (8 + 6) =",
+ "target": "42",
+ "intermediate": "14",
+ "greedy": {
+  "ids": [
+   907,
+   271,
+   99924,
+   3709,
+   109849,
+   98254
+  ],
+  "text": " ?\n\n首先，我们需要按照",
+  "stopped_at": null,
+  "first_number": null,
+  "correct": false,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

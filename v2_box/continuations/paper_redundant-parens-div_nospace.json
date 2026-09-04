@@ -1,0 +1,28 @@
+{
+ "set": "paper",
+ "name": "redundant-parens-div",
+ "variant": "nospace",
+ "prompt": "(12 / 4) - 1 =",
+ "target": "2",
+ "intermediate": "3",
+ "greedy": {
+  "ids": [
+   220,
+   18,
+   471,
+   220,
+   16,
+   283
+  ],
+  "text": " 3 - 1 =",
+  "stopped_at": null,
+  "first_number": 3,
+  "correct": false,
+  "leaks": true
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": true,
+ "greedy_writes_intermediate_first": true,
+ "admissible": false
+}

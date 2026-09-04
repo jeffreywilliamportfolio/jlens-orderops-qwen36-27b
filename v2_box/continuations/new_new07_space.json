@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new07",
+ "variant": "space",
+ "prompt": "3 - 1 + 9 = ",
+ "target": "11",
+ "intermediate": "2",
+ "greedy": {
+  "ids": [
+   16,
+   16,
+   13,
+   271,
+   760,
+   4087
+  ],
+  "text": "11.\n\nThe answer",
+  "stopped_at": null,
+  "first_number": 11,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

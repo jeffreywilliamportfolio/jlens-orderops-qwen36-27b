@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new42",
+ "variant": "space",
+ "prompt": "(12 - 8) * 9 = ",
+ "target": "36",
+ "intermediate": "4",
+ "greedy": {
+  "ids": [
+   18,
+   21,
+   198,
+   7,
+   16,
+   17
+  ],
+  "text": "36\n(12",
+  "stopped_at": null,
+  "first_number": 36,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

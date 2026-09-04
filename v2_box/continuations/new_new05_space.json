@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new05",
+ "variant": "space",
+ "prompt": "7 - 1 + 7 = ",
+ "target": "13",
+ "intermediate": "6",
+ "greedy": {
+  "ids": [
+   16,
+   18,
+   198,
+   22,
+   471,
+   220
+  ],
+  "text": "13\n7 - ",
+  "stopped_at": null,
+  "first_number": 13,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

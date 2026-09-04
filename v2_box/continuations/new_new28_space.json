@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new28",
+ "variant": "space",
+ "prompt": "4 * 7 + 5 = ",
+ "target": "33",
+ "intermediate": "28",
+ "greedy": {
+  "ids": [
+   18,
+   18,
+   13,
+   271,
+   71093,
+   12305
+  ],
+  "text": "33.\n\n```python",
+  "stopped_at": null,
+  "first_number": 33,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

@@ -1,0 +1,28 @@
+{
+ "set": "paper",
+ "name": "chain-add-mult-add",
+ "variant": "space",
+ "prompt": "1 + 2 * 3 + 4 = ",
+ "target": "11",
+ "intermediate": "6",
+ "greedy": {
+  "ids": [
+   16,
+   16,
+   198,
+   16,
+   478,
+   220
+  ],
+  "text": "11\n1 + ",
+  "stopped_at": null,
+  "first_number": 11,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

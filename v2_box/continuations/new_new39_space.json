@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new39",
+ "variant": "space",
+ "prompt": "9 + 10 - 9 = ",
+ "target": "10",
+ "intermediate": "19",
+ "greedy": {
+  "ids": [
+   16,
+   15,
+   13,
+   271,
+   760,
+   4087
+  ],
+  "text": "10.\n\nThe answer",
+  "stopped_at": null,
+  "first_number": 10,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

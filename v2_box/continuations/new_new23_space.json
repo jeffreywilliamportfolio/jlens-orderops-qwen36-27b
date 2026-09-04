@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new23",
+ "variant": "space",
+ "prompt": "3 * (5 + 1) = ",
+ "target": "18",
+ "intermediate": "6",
+ "greedy": {
+  "ids": [
+   16,
+   23,
+   198,
+   18,
+   348,
+   220
+  ],
+  "text": "18\n3 * ",
+  "stopped_at": null,
+  "first_number": 18,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

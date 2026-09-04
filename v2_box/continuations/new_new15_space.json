@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new15",
+ "variant": "space",
+ "prompt": "3 * 12 + 5 = ",
+ "target": "41",
+ "intermediate": "36",
+ "greedy": {
+  "ids": [
+   19,
+   16,
+   13,
+   271,
+   71093,
+   12305
+  ],
+  "text": "41.\n\n```python",
+  "stopped_at": null,
+  "first_number": 41,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

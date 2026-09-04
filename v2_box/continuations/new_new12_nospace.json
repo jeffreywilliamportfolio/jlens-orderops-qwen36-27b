@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new12",
+ "variant": "nospace",
+ "prompt": "10 - 3 * 2 =",
+ "target": "4",
+ "intermediate": "6",
+ "greedy": {
+  "ids": [
+   220,
+   19,
+   198,
+   16,
+   15,
+   471
+  ],
+  "text": " 4\n10 -",
+  "stopped_at": null,
+  "first_number": 4,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

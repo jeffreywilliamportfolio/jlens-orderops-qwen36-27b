@@ -1,0 +1,28 @@
+{
+ "set": "new",
+ "name": "new34",
+ "variant": "nospace",
+ "prompt": "11 + 5 * 8 =",
+ "target": "51",
+ "intermediate": "40",
+ "greedy": {
+  "ids": [
+   220,
+   20,
+   16,
+   198,
+   16,
+   16
+  ],
+  "text": " 51\n11",
+  "stopped_at": null,
+  "first_number": 51,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

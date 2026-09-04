@@ -1,0 +1,28 @@
+{
+ "set": "paper",
+ "name": "sub-mult-right",
+ "variant": "nospace",
+ "prompt": "17 - 3 * 4 =",
+ "target": "5",
+ "intermediate": "12",
+ "greedy": {
+  "ids": [
+   907,
+   271,
+   99924,
+   3709,
+   97149,
+   104983
+  ],
+  "text": " ?\n\n首先，根据运算",
+  "stopped_at": null,
+  "first_number": null,
+  "correct": false,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

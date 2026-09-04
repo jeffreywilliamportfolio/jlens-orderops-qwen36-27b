@@ -1,0 +1,28 @@
+{
+ "set": "paper",
+ "name": "word-sub-mult",
+ "variant": "nospace",
+ "prompt": "ten minus two times three equals",
+ "target": "four",
+ "intermediate": "6",
+ "greedy": {
+  "ids": [
+   271,
+   248068,
+   198,
+   8160,
+   579,
+   264
+  ],
+  "text": "\n\n<think>\nHere's a",
+  "stopped_at": null,
+  "first_number": null,
+  "correct": false,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

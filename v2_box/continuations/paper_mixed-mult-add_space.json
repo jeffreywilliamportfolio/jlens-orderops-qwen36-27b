@@ -1,0 +1,28 @@
+{
+ "set": "paper",
+ "name": "mixed-mult-add",
+ "variant": "space",
+ "prompt": "Calculate: 3 times 4 plus 2 equals ",
+ "target": "14",
+ "intermediate": "12",
+ "greedy": {
+  "ids": [
+   16,
+   19,
+   13,
+   271,
+   1206,
+   11290
+  ],
+  "text": "14.\n\nTo solve",
+  "stopped_at": null,
+  "first_number": 14,
+  "correct": true,
+  "leaks": false
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": false,
+ "greedy_writes_intermediate_first": false,
+ "admissible": false
+}

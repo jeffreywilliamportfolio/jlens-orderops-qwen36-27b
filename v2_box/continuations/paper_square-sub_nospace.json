@@ -1,0 +1,28 @@
+{
+ "set": "paper",
+ "name": "square-sub",
+ "variant": "nospace",
+ "prompt": "(7 - 4)^2 =",
+ "target": "9",
+ "intermediate": "3",
+ "greedy": {
+  "ids": [
+   220,
+   18,
+   61,
+   17,
+   283,
+   220
+  ],
+  "text": " 3^2 = ",
+  "stopped_at": null,
+  "first_number": 3,
+  "correct": false,
+  "leaks": true
+ },
+ "samples": [],
+ "assert_rate": null,
+ "leak_any": true,
+ "greedy_writes_intermediate_first": true,
+ "admissible": false
+}
