@@ -347,6 +347,7 @@ def main():
     ap.add_argument("--top-p", type=float, default=0.95)
     ap.add_argument("--skip-sampling", action="store_true")
     ap.add_argument("--resume", action="store_true", help="skip prompts whose outputs already exist in --out")
+    ap.add_argument("--variants", default="space,nospace", help="comma list of prompt variants to run (default both)")
     ap.add_argument("--limit", type=int, default=None, help="only the first N items (smoke test)")
     ap.add_argument("--hash-shards", action="store_true", help="also sha256 every model shard into the manifest (minutes)")
     ap.add_argument("--dry-run", action="store_true")
@@ -528,9 +529,12 @@ def main():
     json.dump(manifest, open(os.path.join(args.out, "manifest.json"), "w"), indent=1)
 
     # ------------------------------------------------------------------ main loop
+    wanted = set(v.strip() for v in args.variants.split(","))
     for pi, p in enumerate(prepared):
         it, variant, ids = p["item"], p["variant"], p["ids"]
         tag = f"{it['set']}_{it['name']}_{variant}"
+        if variant not in wanted:
+            continue
         if args.resume and all(os.path.exists(os.path.join(args.out, n, f"{tag}.json")) for n in list(lenses) + ["continuations"]):
             log(f"[{pi+1}/{len(prepared)}] {tag:40s} skip (resume: outputs exist)")
             continue
