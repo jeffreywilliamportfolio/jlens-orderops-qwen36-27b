@@ -280,12 +280,16 @@ def main():
                          checkpoint_path=ckpt, checkpoint_every=1, resume=True)
 
     dim_batch_used, fallback_events = args.dim_batch, []
+    oom_msg = None
     try:
         lens = run(args.dim_batch)
     except torch.cuda.OutOfMemoryError as e:
-        fallback_events.append(dict(at=ts(), dim_batch=args.dim_batch, error=str(e)[:300]))
-        log(f"CUDA OOM at dim_batch {args.dim_batch}; falling back to {args.dim_batch_fallback} (resumes from checkpoint)")
-        torch.cuda.empty_cache()
+        oom_msg = str(e)[:300]
+    if oom_msg is not None:
+        # retry OUTSIDE the except block so the failed attempt's graph/frames are released first
+        import gc; gc.collect(); torch.cuda.empty_cache(); gc.collect(); torch.cuda.empty_cache()
+        fallback_events.append(dict(at=ts(), dim_batch=args.dim_batch, error=oom_msg))
+        log(f"CUDA OOM at dim_batch {args.dim_batch}; freed to {torch.cuda.memory_allocated()/2**30:.1f} GiB; falling back to {args.dim_batch_fallback} (resumes from checkpoint)")
         dim_batch_used = args.dim_batch_fallback
         lens = run(args.dim_batch_fallback)
 
