@@ -1,22 +1,27 @@
 # RESULTS_v2 — order-of-operations lens eval v2 on Qwen3.6-27B, scored against the frozen preregistration
 
-Produced by `score_v2.py` (sha256 `cca14ad0348e5b03…`; box dir `v2_box`, no --box-full-dir), stdlib only, no network. Every number below is computed from the files listed here; the prereg and addenda are quoted, not paraphrased. The addendum-5 C2 lens is a **5-prompt fit** and is labelled **neel5 (5-prompt fit)** throughout; its on-disk directory is `neel25/`. No number here is an n=25 result.
+Produced by `score_v2.py` (sha256 `cca14ad0348e5b03…`; box dir `v2_box`, box full dir `v2_box_full`), stdlib only, no network. Every number below is computed from the files listed here; the prereg and addenda are quoted, not paraphrased. The addendum-5 C2 lens is a **5-prompt fit** and is labelled **neel5 (5-prompt fit)** throughout; its on-disk directory is `neel25/`. No number here is an n=25 result.
 
 ## 1. Data provenance
 
 | source | files found | expected | status |
 |---|---|---|---|
 | `v2_api/raw_A` | 210 | 210 | complete |
-| `v2_api/raw_C` | 43 | 105 | partial (41%) |
+| `v2_api/raw_C` | 70 | 105 | partial (67%) |
 | `v2_api/raw_B` | 105 | 105 | complete |
 | `v2_api/raw_B2` | 0 | 105 | MISSING |
 | `v2_box/hosted_n1000` | 210 | 210 | complete |
 | `v2_box/neel25` | 210 | 210 | complete |
 | `v2_box/continuations` | 210 | 210 | complete |
+| `v2_box_full/continuations` | 110 | 210 | partial (52%) |
+| `v2_box_full/hosted_n1000` | 110 | 210 | partial (52%) |
+| `v2_box_full/neel25` | 110 | 210 | partial (52%) |
 | `v2_box/manifest.json` | present | 1 | present |
+| `v2_box_full/manifest.json` | present | 1 | present |
 
 Missing sources: `v2_api/raw_B2`.
 Box manifest: hosted (n1000): n_prompts=1000, layers 0..62, sha256 1718c8c52dd8…; neel5 (5-prompt fit): n_prompts=5, layers 0..61, sha256 fd9af5fdb732…; model config sha 69db4eb7196b…; torch 2.11.0+cu128; GPU NVIDIA RTX PRO 6000 Blackwell Workstation Edition; started 2026-09-04T22:28:05Z, finished 2026-09-04T22:55:11Z; sampling 10×T=0.8 top_p=0.95.
+Box full-pass manifest: hosted (n1000): n_prompts=1000, layers 0..62, sha256 1718c8c52dd8…; neel5 (5-prompt fit): n_prompts=5, layers 0..61, sha256 fd9af5fdb732…; model config sha 69db4eb7196b…; torch 2.11.0+cu128; GPU NVIDIA RTX PRO 6000 Blackwell Workstation Edition; started 2026-09-04T23:05:04Z, finished 2026-09-05T00:26:23Z; sampling 10×T=0.8 top_p=0.95.
 
 Frozen-file re-verification (`FREEZE.sha256`):
 
@@ -37,9 +42,9 @@ Frozen-file re-verification (`FREEZE.sha256`):
 
 **FREEZE re-verification: PASS** (12 files).
 
-Items: 55 paper + 50 held-out = 105. Arm A reads present: 210/210 (space 105, nospace 105). Correctness records (space): 105 items (105 box, 0 API); API arm C files 43 (43 paper, 0 held-out). Leak gate: 43 items gated (0 box, 43 API), 15 admissible. Decoys: 50 held-out (from the item file), 17 paper (derived by `box/read_items.py::derive_decoy`, the wrong-precedence rule of RESEARCH_NOTE.md — `score_orderops.py` carries no decoy dict; the 14 v1 pairs lived in the session-transcript inline scorer).
+Items: 55 paper + 50 held-out = 105. Arm A reads present: 210/210 (space 105, nospace 105). Correctness records (space): 105 items (105 box, 0 API); API arm C files 70 (55 paper, 15 held-out). Leak gate: 105 items gated (105 box, 0 API), 24 admissible. Decoys: 50 held-out (from the item file), 17 paper (derived by `box/read_items.py::derive_decoy`, the wrong-precedence rule of RESEARCH_NOTE.md — `score_orderops.py` carries no decoy dict; the 14 v1 pairs lived in the session-transcript inline scorer).
 
-Correctness normalisation: targets and generated text are passed through a number-word map (zero..ninety-nine, hyphen or space) before comparison. The API arm-C flags were computed by digit-string equality, which mis-scores the six word-target paper items (word-add-mult, word-mult-sub, word-parens, word-sub-mult, word-add-add, word-div-sub); they were recomputed here from the stored text: `correct_greedy` changed for 3 of 43 API items (word-add-mult: False→True, word-mult-sub: False→True, word-parens: False→True); `admissible` changed for 2 (word-add-mult: False→True, word-mult-sub: False→True). Box `greedy.correct` is trusted as word-aware; a local re-parse disagrees on 10 of 210 box continuations: paper_div-sub-left_space, paper_div-sub-left_nospace, paper_nested-mult-add-div_space, paper_nested-mult-add-div_nospace, paper_mult-div-left_space, paper_mult-div-left_nospace.
+Correctness normalisation: targets and generated text are passed through a number-word map (zero..ninety-nine, hyphen or space) before comparison. The API arm-C flags were computed by digit-string equality, which mis-scores the six word-target paper items (word-add-mult, word-mult-sub, word-parens, word-sub-mult, word-add-add, word-div-sub); they were recomputed here from the stored text: `correct_greedy` changed for 6 of 70 API items (word-add-mult: False→True, word-mult-sub: False→True, word-parens: False→True, word-sub-mult: False→True, word-add-add: False→True, word-div-sub: False→True); `admissible` changed for 3 (word-add-mult: False→True, word-mult-sub: False→True, word-add-add: False→True). Box `greedy.correct` is trusted as word-aware; a local re-parse disagrees on 10 of 210 box continuations: paper_div-sub-left_space, paper_div-sub-left_nospace, paper_nested-mult-add-div_space, paper_nested-mult-add-div_nospace, paper_mult-div-left_space, paper_mult-div-left_nospace.
 
 Other schema notes: (i) layer 63 of every 64-layer response is the model's own next-token top-8 (no Jacobian): the lens rank here is the min over layers 0–62, and the frozen scorer's `best_rank` (all 64 layers) is shown once as a sensitivity line. (ii) The nospace readout token is ` =` for 97 prompts and ` equals` for 8 (the word-form paper items). (iii) The API gate ran on the with-space variant only; item admissibility is a per-item property applied to both variants.
 
@@ -56,11 +61,11 @@ Arm A (API, hosted n1000 lens, `space` variant, 55 paper items):
 |---|---|---|---|---|---|---|---|
 | unfiltered | 55 | 24/55 = 0.44 [0.30, 0.58] | 41/55 = 0.75 [0.61, 0.85] | 0.82 | 0.85 | 0.58 | 42/12/1, p=5.2e-05 |
 | correct-only | 47 | 16/47 = 0.34 [0.21, 0.49] | 33/47 = 0.70 [0.55, 0.83] | 0.79 | 0.83 | 0.51 | 34/12/1, p=1.6e-03 |
-| admissible-only | 15 | 3/15 = 0.20 [0.04, 0.48] | 9/15 = 0.60 [0.32, 0.84] | 0.73 | 0.80 | 0.37 | 9/5/1, p=4.2e-01 |
+| admissible-only | 12 | 2/12 = 0.17 [0.02, 0.48] | 7/12 = 0.58 [0.28, 0.85] | 0.67 | 0.75 | 0.34 | 7/5/0, p=7.7e-01 |
 
 - Verdict on the frozen column (correct-only, n=47 of 55 paper items with a correctness record): **does not replicate as scored** (pass@1 0.34 vs 0.35, pass@3 0.70 vs 0.65, p=1.6e-03 vs 0.01).
 - Unfiltered (n=55): **replicates** (pass@1 0.44 vs 0.35, pass@3 0.75 vs 0.65, p=5.2e-05 vs 0.01).
-- Admissible-only (addendum-2 headline, n=15): **does not replicate as scored** (pass@1 0.20 vs 0.35, pass@3 0.60 vs 0.65, p=4.2e-01 vs 0.01). Addendum-2 rule: 15 admissible of 105 (< 30) → **H1/H2 not testable as designed** on the admissible column (gate incomplete: 43/105 gated).
+- Admissible-only (addendum-2 headline, n=12): **does not replicate as scored** (pass@1 0.17 vs 0.35, pass@3 0.58 vs 0.65, p=7.7e-01 vs 0.01). Addendum-2 rule: 24 admissible of 105 (< 30) → **H1/H2 not testable as designed** on the admissible column.
 
 Box C1 (hosted lens applied locally, same items; pipeline trusted by the C1-vs-A gate):
 
@@ -70,7 +75,7 @@ Box C1 (hosted lens applied locally, same items; pipeline trusted by the C1-vs-A
 |---|---|---|---|---|---|---|---|
 | unfiltered | 55 | 23/55 = 0.42 [0.29, 0.56] | 41/55 = 0.75 [0.61, 0.85] | 0.82 | 0.85 | 0.58 | 42/12/1, p=5.2e-05 |
 | correct-only | 47 | 15/47 = 0.32 [0.19, 0.47] | 33/47 = 0.70 [0.55, 0.83] | 0.79 | 0.83 | 0.50 | 34/12/1, p=1.6e-03 |
-| admissible-only | 15 | 3/15 = 0.20 [0.04, 0.48] | 9/15 = 0.60 [0.32, 0.84] | 0.73 | 0.80 | 0.37 | 9/5/1, p=4.2e-01 |
+| admissible-only | 12 | 2/12 = 0.17 [0.02, 0.48] | 7/12 = 0.58 [0.28, 0.85] | 0.67 | 0.75 | 0.34 | 7/5/0, p=7.7e-01 |
 
 - correct-only verdict (top-8-sliced ranks (API parity)): **does not replicate as scored** (pass@1 0.32 vs 0.35, pass@3 0.70 vs 0.65, p=1.6e-03 vs 0.01).
 *exact full-vocab ranks*
@@ -79,7 +84,7 @@ Box C1 (hosted lens applied locally, same items; pipeline trusted by the C1-vs-A
 |---|---|---|---|---|---|---|---|
 | unfiltered | 55 | 24/55 = 0.44 [0.30, 0.58] | 41/55 = 0.75 [0.61, 0.85] | 0.82 | 0.85 | 0.58 | 42/12/1, p=5.2e-05 |
 | correct-only | 47 | 16/47 = 0.34 [0.21, 0.49] | 33/47 = 0.70 [0.55, 0.83] | 0.79 | 0.83 | 0.51 | 34/12/1, p=1.6e-03 |
-| admissible-only | 15 | 3/15 = 0.20 [0.04, 0.48] | 9/15 = 0.60 [0.32, 0.84] | 0.73 | 0.80 | 0.37 | 9/5/1, p=4.2e-01 |
+| admissible-only | 12 | 2/12 = 0.17 [0.02, 0.48] | 7/12 = 0.58 [0.28, 0.85] | 0.67 | 0.75 | 0.34 | 7/5/0, p=7.7e-01 |
 
 - correct-only verdict (exact full-vocab ranks): **does not replicate as scored** (pass@1 0.34 vs 0.35, pass@3 0.70 vs 0.65, p=1.6e-03 vs 0.01).
 
@@ -94,12 +99,12 @@ Arm A (API, hosted lens, `space` variant, 50 held-out items):
 |---|---|---|---|---|---|---|---|
 | unfiltered | 50 | 24/50 = 0.48 [0.34, 0.63] | 36/50 = 0.72 [0.58, 0.84] | 0.78 | 0.82 | 0.62 | 39/11/0, p=9.0e-05 |
 | correct-only | 50 | 24/50 = 0.48 [0.34, 0.63] | 36/50 = 0.72 [0.58, 0.84] | 0.78 | 0.82 | 0.62 | 39/11/0, p=9.0e-05 |
-| admissible-only | 0 | – | – | – | – | – | – |
+| admissible-only | 12 | 6/12 = 0.50 [0.21, 0.79] | 8/12 = 0.67 [0.35, 0.90] | 0.75 | 0.75 | 0.60 | 9/3/0, p=1.5e-01 |
 
 - unfiltered: held-out pass@1 0.48 vs paper CP [0.30, 0.58] → inside; pass@3 0.72 vs paper CP [0.61, 0.85] → inside → **generalises beyond the paper's items**.
 - correct-only: held-out pass@1 0.48 vs paper CP [0.21, 0.49] → inside; pass@3 0.72 vs paper CP [0.55, 0.83] → inside → **generalises beyond the paper's items**.
-- admissible-only: not scorable (held-out n=0, paper n=15) — no held-out item has been gated yet.
-- Addendum-2 headline column (admissible-only): **not testable as designed** (15 admissible < 30).
+- admissible-only: held-out pass@1 0.50 vs paper CP [0.02, 0.48] → outside; pass@3 0.67 vs paper CP [0.28, 0.85] → inside → outside on the **high** side (held-out easier than the paper's items).
+- Addendum-2 headline column (admissible-only): **not testable as designed** (24 admissible < 30).
 
 Box C1 on the held-out 50 (exact ranks):
 
@@ -107,7 +112,7 @@ Box C1 on the held-out 50 (exact ranks):
 |---|---|---|---|---|---|---|---|
 | unfiltered | 50 | 24/50 = 0.48 [0.34, 0.63] | 36/50 = 0.72 [0.58, 0.84] | 0.78 | 0.82 | 0.62 | 39/11/0, p=9.0e-05 |
 | correct-only | 50 | 24/50 = 0.48 [0.34, 0.63] | 36/50 = 0.72 [0.58, 0.84] | 0.78 | 0.82 | 0.62 | 39/11/0, p=9.0e-05 |
-| admissible-only | 0 | – | – | – | – | – | – |
+| admissible-only | 12 | 6/12 = 0.50 [0.21, 0.79] | 8/12 = 0.67 [0.35, 0.90] | 0.75 | 0.75 | 0.60 | 9/3/0, p=1.5e-01 |
 
 ### H3 — carrier of two-digit hits
 
@@ -130,15 +135,15 @@ Box C1 on the held-out 50 (exact ranks):
 |---|---|---|---|---|---|
 | top-8-sliced (API parity) | unfiltered | 47/105 = 0.45 [0.35, 0.55] | 44/105 = 0.42 [0.32, 0.52] | 0.94 | survives |
 | top-8-sliced (API parity) | correct-only | 39/97 = 0.40 [0.30, 0.51] | 36/97 = 0.37 [0.28, 0.48] | 0.92 | survives |
-| top-8-sliced (API parity) | admissible-only | 3/15 = 0.20 [0.04, 0.48] | 4/15 = 0.27 [0.08, 0.55] | 1.33 | survives |
+| top-8-sliced (API parity) | admissible-only | 8/24 = 0.33 [0.16, 0.55] | 7/24 = 0.29 [0.13, 0.51] | 0.88 | survives |
 | exact full-vocab | unfiltered | 48/105 = 0.46 [0.36, 0.56] | 45/105 = 0.43 [0.33, 0.53] | 0.94 | survives |
 | exact full-vocab | correct-only | 40/97 = 0.41 [0.31, 0.52] | 37/97 = 0.38 [0.28, 0.49] | 0.93 | survives |
-| exact full-vocab | admissible-only | 3/15 = 0.20 [0.04, 0.48] | 4/15 = 0.27 [0.08, 0.55] | 1.33 | survives |
+| exact full-vocab | admissible-only | 8/24 = 0.33 [0.16, 0.55] | 7/24 = 0.29 [0.13, 0.51] | 0.88 | survives |
 
 neel5 (5-prompt fit) exact pass@1 restricted to its Jacobian-carrying layers (0–61; layer 62 is the fit target, read without a Jacobian): 43/105 = 0.41 [0.31, 0.51].
 
 **Verdict (exact ranks, unfiltered, ratio 0.94 ≥ 0.5): the effect survives the 5-prompt lens → "lens quality does not explain the null", with more force than the frozen rule required (addendum 5). The lens is a 5-prompt fit, not n=25.**
-Top-8-sliced ratio (API parity): 0.94. Admissible-only column: ratio 1.33.
+Top-8-sliced ratio (API parity): 0.94. Admissible-only column: ratio 0.88.
 
 ### H5 — decoy (wrong-precedence value)
 
@@ -149,7 +154,7 @@ Top-8-sliced ratio (API parity): 0.94. Admissible-only column: ratio 1.33.
 - Arm A, paper: 17 items with a decoy; win/loss/tie 12/2/3 (ties with both absent from the top-8: 1; decoys ≥ 100 with no single-token form: 0). Win rate of decided items 12/14 = 0.86 [0.57, 0.98] → > 0.60 → **holds**; win rate of all decoy items 12/17 = 0.71 → > 0.60 → holds.
 - Arm A, held-out: 50 items with a decoy; win/loss/tie 37/6/7 (ties with both absent from the top-8: 4; decoys ≥ 100 with no single-token form: 2). Win rate of decided items 37/43 = 0.86 [0.72, 0.95] → > 0.60 → **holds**; win rate of all decoy items 37/50 = 0.74 → > 0.60 → holds.
 - Arm A, pooled, correct-only: 63 items with a decoy; win/loss/tie 47/8/8 (ties with both absent from the top-8: 5; decoys ≥ 100 with no single-token form: 2). Win rate of decided items 47/55 = 0.85 [0.73, 0.94] → > 0.60 → **holds**; win rate of all decoy items 47/63 = 0.75 → > 0.60 → holds.
-- Arm A, pooled, admissible-only: 5 items with a decoy; win/loss/tie 5/0/0 (ties with both absent from the top-8: 0; decoys ≥ 100 with no single-token form: 0). Win rate of decided items 5/5 = 1.00 [0.48, 1.00] → > 0.60 → **holds**; win rate of all decoy items 5/5 = 1.00 → > 0.60 → holds.
+- Arm A, pooled, admissible-only: 15 items with a decoy; win/loss/tie 12/3/0 (ties with both absent from the top-8: 0; decoys ≥ 100 with no single-token form: 0). Win rate of decided items 12/15 = 0.80 [0.52, 0.96] → > 0.60 → **holds**; win rate of all decoy items 12/15 = 0.80 → > 0.60 → holds.
 - Box hosted (n1000), exact ranks, pooled: 58 items with a decoy; win/loss/tie 43/8/7 (ties with both absent from the top-8: 1; decoys ≥ 100 with no single-token form: 0). Win rate of decided items 43/51 = 0.84 [0.71, 0.93] → > 0.60 → **holds**; win rate of all decoy items 43/58 = 0.74 → > 0.60 → holds.
 - Box neel5 (5-prompt fit), exact ranks, pooled: 58 items with a decoy; win/loss/tie 48/6/4 (ties with both absent from the top-8: 1; decoys ≥ 100 with no single-token form: 0). Win rate of decided items 48/54 = 0.89 [0.77, 0.96] → > 0.60 → **holds**; win rate of all decoy items 48/58 = 0.83 → > 0.60 → holds.
 
@@ -166,12 +171,13 @@ Correct-only here = items whose greedy continuation is correct under BOTH varian
 |---|---|---|---|---|---|---|---|---|
 | arm A | all | unfiltered | 48/105 = 0.46 [0.36, 0.56] | 4/105 = 0.04 [0.01, 0.09] | 0.08 | 0.73 | 0.07 | 4/44/0/57 |
 | arm A | all | correct-only | 34/77 = 0.44 [0.33, 0.56] | 1/77 = 0.01 [0.00, 0.07] | 0.03 | 0.78 | 0.04 | 1/33/0/43 |
-| arm A | all | admissible-only | 3/15 = 0.20 [0.04, 0.48] | 0/15 = 0.00 [0.00, 0.22] | 0.00 | 0.60 | 0.00 | 0/3/0/12 |
+| arm A | all | admissible-only | 8/24 = 0.33 [0.16, 0.55] | 0/24 = 0.00 [0.00, 0.14] | 0.00 | 0.62 | 0.00 | 0/8/0/16 |
 | arm A | paper | unfiltered | 24/55 = 0.44 [0.30, 0.58] | 4/55 = 0.07 [0.02, 0.18] | 0.17 | 0.75 | 0.11 | 4/20/0/31 |
 | arm A | paper | correct-only | 13/37 = 0.35 [0.20, 0.53] | 1/37 = 0.03 [0.00, 0.14] | 0.08 | 0.76 | 0.05 | 1/12/0/24 |
-| arm A | paper | admissible-only | 3/15 = 0.20 [0.04, 0.48] | 0/15 = 0.00 [0.00, 0.22] | 0.00 | 0.60 | 0.00 | 0/3/0/12 |
+| arm A | paper | admissible-only | 2/12 = 0.17 [0.02, 0.48] | 0/12 = 0.00 [0.00, 0.26] | 0.00 | 0.58 | 0.00 | 0/2/0/10 |
 | arm A | new | unfiltered | 24/50 = 0.48 [0.34, 0.63] | 0/50 = 0.00 [0.00, 0.07] | 0.00 | 0.72 | 0.02 | 0/24/0/26 |
 | arm A | new | correct-only | 21/40 = 0.53 [0.36, 0.68] | 0/40 = 0.00 [0.00, 0.09] | 0.00 | 0.80 | 0.03 | 0/21/0/19 |
+| arm A | new | admissible-only | 6/12 = 0.50 [0.21, 0.79] | 0/12 = 0.00 [0.00, 0.26] | 0.00 | 0.67 | 0.00 | 0/6/0/6 |
 | box hosted (n1000) top8 | all | unfiltered | 47/105 = 0.45 [0.35, 0.55] | 5/105 = 0.05 [0.02, 0.11] | 0.11 | 0.73 | 0.07 | 5/42/0/58 |
 | box hosted (n1000) exact | all | unfiltered | 48/105 = 0.46 [0.36, 0.56] | 5/105 = 0.05 [0.02, 0.11] | 0.10 | 0.73 | 0.07 | 5/43/0/57 |
 | box neel5 (5-prompt fit) top8 | all | unfiltered | 44/105 = 0.42 [0.32, 0.52] | 4/105 = 0.04 [0.01, 0.09] | 0.09 | 0.56 | 0.06 | 4/40/0/61 |
@@ -188,12 +194,13 @@ Correct-only here = items whose greedy continuation is correct under BOTH varian
 |---|---|---|---|---|---|---|---|---|
 | arm A | new | unfiltered | 13/25 = 0.52 [0.31, 0.72] | 3/25 = 0.12 [0.03, 0.31] | 11/25 = 0.44 [0.24, 0.65] | 11/25 = 0.44 [0.24, 0.65] | 0.23 | tokenization sufficient |
 | arm A | new | correct-only | 13/25 = 0.52 [0.31, 0.72] | 3/25 = 0.12 [0.03, 0.31] | 11/25 = 0.44 [0.24, 0.65] | 11/25 = 0.44 [0.24, 0.65] | 0.23 | tokenization sufficient |
+| arm A | new | admissible-only | 2/6 = 0.33 [0.04, 0.78] | 1/6 = 0.17 [0.00, 0.64] | 4/6 = 0.67 [0.22, 0.96] | 4/6 = 0.67 [0.22, 0.96] | 0.50 | not below half |
 | arm A | paper | unfiltered | 9/22 = 0.41 [0.21, 0.64] | 2/22 = 0.09 [0.01, 0.29] | 15/33 = 0.45 [0.28, 0.64] | 15/33 = 0.45 [0.28, 0.64] | 0.22 | tokenization sufficient |
 | arm A | paper | correct-only | 7/20 = 0.35 [0.15, 0.59] | 2/20 = 0.10 [0.01, 0.32] | 9/27 = 0.33 [0.17, 0.54] | 9/27 = 0.33 [0.17, 0.54] | 0.29 | tokenization sufficient |
-| arm A | paper | admissible-only | 3/8 = 0.38 [0.09, 0.76] | 2/8 = 0.25 [0.03, 0.65] | 0/7 = 0.00 [0.00, 0.41] | 0/7 = 0.00 [0.00, 0.41] | 0.67 | not below half |
+| arm A | paper | admissible-only | 2/6 = 0.33 [0.04, 0.78] | 1/6 = 0.17 [0.00, 0.64] | 0/6 = 0.00 [0.00, 0.46] | 0/6 = 0.00 [0.00, 0.46] | 0.50 | not below half |
 | arm A | all | unfiltered | 22/47 = 0.47 [0.32, 0.62] | 5/47 = 0.11 [0.04, 0.23] | 26/58 = 0.45 [0.32, 0.58] | 26/58 = 0.45 [0.32, 0.58] | 0.23 | tokenization sufficient |
 | arm A | all | correct-only | 20/45 = 0.44 [0.30, 0.60] | 5/45 = 0.11 [0.04, 0.24] | 20/52 = 0.38 [0.25, 0.53] | 20/52 = 0.38 [0.25, 0.53] | 0.25 | tokenization sufficient |
-| arm A | all | admissible-only | 3/8 = 0.38 [0.09, 0.76] | 2/8 = 0.25 [0.03, 0.65] | 0/7 = 0.00 [0.00, 0.41] | 0/7 = 0.00 [0.00, 0.41] | 0.67 | not below half |
+| arm A | all | admissible-only | 4/12 = 0.33 [0.10, 0.65] | 2/12 = 0.17 [0.02, 0.48] | 4/12 = 0.33 [0.10, 0.65] | 4/12 = 0.33 [0.10, 0.65] | 0.50 | not below half |
 | box hosted (n1000) exact | new | unfiltered | 13/25 = 0.52 [0.31, 0.72] | 3/25 = 0.12 [0.03, 0.31] | 11/25 = 0.44 [0.24, 0.65] | 11/25 = 0.44 [0.24, 0.65] | 0.23 | tokenization sufficient |
 | box neel5 (5-prompt fit) exact | new | unfiltered | 13/25 = 0.52 [0.31, 0.72] | 3/25 = 0.12 [0.03, 0.31] | 8/25 = 0.32 [0.15, 0.54] | 8/25 = 0.32 [0.15, 0.54] | 0.23 | tokenization sufficient |
 
@@ -318,127 +325,134 @@ Items per curve: hosted (n1000) n=105, neel5 (5-prompt fit) n=105. Full 64-numbe
 
 > admissible ⇔ ≥ 8/10 sampled continuations (T=0.8, 32 new tokens) write the target as the first number AND no continuation (sampled or greedy) writes the intermediate as a number before the target. "If fewer than 30 of the 105 items are admissible, H1/H2 are 'not testable as designed'."
 
-- API arm C (with-space variant; unseeded; flags recomputed word-aware): n gated 43 (43 paper, 0 held-out); greedy correct 32/43; greedy writes the intermediate first 5/43; assert_rate ≥ 0.8 22/43 (median assert_rate 0.8); leak_any 25/43; **admissible 15/43** (stored flags said 13) — 15 < 30 → H1/H2 not testable as designed (gate 43/105 complete).
+- API arm C (with-space variant; unseeded; flags recomputed word-aware): n gated 70 (55 paper, 15 held-out); greedy correct 57/70; greedy writes the intermediate first 6/70; assert_rate ≥ 0.8 38/70 (median assert_rate 0.8); leak_any 40/70; **admissible 26/70** (stored flags said 23) — 26 < 30 → H1/H2 not testable as designed (gate 70/105 complete).
   - leak example `paper_parens-add-mult` (intermediate 5, target 20): `5 * 4 = 20 is the correct answer.⏎⏎And if we write⏎```javascript⏎var x = 2 + 3 * `
   - leak example `paper_mult-parens-add` (intermediate 7, target 14): `2 * 7 = 14\n现在，请你解决一下这个数学题：\n2 + 3 * (4 + 5)⏎⏎`
   - leak example `paper_sub-mult-right` (intermediate 12, target 5): `17 - 12 = 5？⏎⏎<think>⏎Here's a thinking process:⏎⏎1.  **Analyze User Input:**⏎   -`
-- Box sampled pass (space variant; seeds 0–9, top_p 0.95): no gated items.
+- Box sampled pass (space variant; seeds 0–9, top_p 0.95; from `v2_box_full`): n gated 105 (55 paper, 50 held-out); greedy correct 97/105; greedy writes the intermediate first 6/105; assert_rate ≥ 0.8 51/105 (median assert_rate 0.7); leak_any 69/105; **admissible 24/105** — 24 < 30 → H1/H2 not testable as designed (gate 105/105 complete).
+  - leak example `paper_parens-add-mult` (intermediate 5, target 20): `5 * 4 = 20⏎⏎Some complex things in Java are also quite simple in MathJax. For example, the`
+  - leak example `paper_mult-parens-add` (intermediate 7, target 14): `2 * 7 = 14.⏎⏎14⏎⏎What is 2 * (3 + 4)?`
+  - leak example `paper_mult-parens-sub` (intermediate 3, target 6): `3 * 2 = 6, which is not the target value of 8.⏎(9 - 6) + 2 = 3 +`
+- Box sampled pass (nospace variant): n gated 5 (5 paper, 0 held-out); greedy correct 5/5; greedy writes the intermediate first 0/5; assert_rate ≥ 0.8 1/5 (median assert_rate 0.4); leak_any 3/5; **admissible 1/5** — 1 < 30 → H1/H2 not testable as designed (gate 5/105 complete).
+  - leak example `paper_parens-add-mult` (intermediate 5, target 20): ` 5 * 4 = 20⏎2 + 3 * 4 = 2 + 12 = 14⏎⏎```python⏎`
+  - leak example `paper_mult-parens-add` (intermediate 7, target 14): ` 2 * 7 = 14⏎⏎**Trigonometry:**⏎*   sin(3.14159/2) = `
+  - leak example `paper_mult-parens-sub` (intermediate 3, target 6): ` 3 * 2 = 6.⏎1 * 6 * 2 = 12.⏎1 * 6 + 2 = `
 
-Headline gate used for the admissible-only columns (box preferred, else API): 43 gated, 15 admissible. Correctness records used for the correct-only columns (space): 105 items; correct 97.
+Headline gate used for the admissible-only columns (box preferred, else API): 105 gated, 24 admissible. Correctness records used for the correct-only columns (space): 105 items; correct 97.
 
 Secondary, template-mediated (chat endpoint): arm B (8 tokens) n=105: first number == target 2, another number first 102, no number within 8 tokens 1 (addendum 1: mostly undetermined by construction). Arm B2 (48 tokens) n=0 (no files — `v2_api/raw_B2/` is empty).
 
 ## 7. Summary
 
-On the paper's 55 items read through Neuronpedia's hosted n1000 lens at the space-after-`=` position, the unspoken intermediate reaches rank 1 in 24/55 (0.44) and rank ≤ 3 in 41/55 (0.75), against a paired uninvolved-digit sign test of 42/12/1 (p=5e-05). Restricted to the 47 paper items the model answers correctly (word-aware; 55 of 55 paper items have a correctness record), pass@1 is 0.34 and pass@3 0.70, so on the column the rule names H1 does not replicate as scored. The addendum-2 headline column has 15 admissible items of 43 gated (105 planned); below the 30-item line, H1 and H2 are not testable as designed on that column while the gate is incomplete. The held-out 50 give pass@1 0.48 and pass@3 0.72 unfiltered, inside the paper-set CP intervals (H2: generalises beyond the paper's items). Of the 22 two-digit rank-1 hits, 20 ride the CJK numeral (H3 holds at 0.91). The correct intermediate beats the wrong-precedence decoy in 49 of 57 decided items (0.86; H5 holds), with 10 ties. Of the three candidate explanations for the discrepancy with Neel's team: readout position is a sufficient explanation for a null (nospace/space pass@1 ratio 0.08, H6); tokenization/synonym coverage is a sufficient explanation for two-digit misses (two-digit pass@1 0.52 with CJK vs 0.12 without, H7); lens quality is ruled out as an explanation — the effect survives a 5-prompt lens at ratio 0.94 (H4; a 5-prompt fit, not n=25). The addendum-4 control shows that 24 of the 48 rank-1 intermediates are also in the model's own top-8 next tokens at the readout, and 30 of the 77 rank ≤ 3 items are workspace-only (absent from the layer-63 top-8); for those items the lens read is not reducible to next-token prediction, while the leak gate's finding that the intermediate opens narrated work in sampled continuations qualifies every hit that also sits in the top-8. The API leak gate has reached 43 of 105 items: greedy writes the intermediate first in 5, but at T=0.8 the intermediate leaks in 25, leaving 15 admissible.
+On the paper's 55 items read through Neuronpedia's hosted n1000 lens at the space-after-`=` position, the unspoken intermediate reaches rank 1 in 24/55 (0.44) and rank ≤ 3 in 41/55 (0.75), against a paired uninvolved-digit sign test of 42/12/1 (p=5e-05). Restricted to the 47 paper items the model answers correctly (word-aware; 55 of 55 paper items have a correctness record), pass@1 is 0.34 and pass@3 0.70, so on the column the rule names H1 does not replicate as scored. The addendum-2 headline column has 24 admissible items of 105 gated (105 planned); below the 30-item line, H1 and H2 are not testable as designed on that column. The held-out 50 give pass@1 0.48 and pass@3 0.72 unfiltered, inside the paper-set CP intervals (H2: generalises beyond the paper's items). Of the 22 two-digit rank-1 hits, 20 ride the CJK numeral (H3 holds at 0.91). The correct intermediate beats the wrong-precedence decoy in 49 of 57 decided items (0.86; H5 holds), with 10 ties. Of the three candidate explanations for the discrepancy with Neel's team: readout position is a sufficient explanation for a null (nospace/space pass@1 ratio 0.08, H6); tokenization/synonym coverage is a sufficient explanation for two-digit misses (two-digit pass@1 0.52 with CJK vs 0.12 without, H7); lens quality is ruled out as an explanation — the effect survives a 5-prompt lens at ratio 0.94 (H4; a 5-prompt fit, not n=25). The addendum-4 control shows that 24 of the 48 rank-1 intermediates are also in the model's own top-8 next tokens at the readout, and 30 of the 77 rank ≤ 3 items are workspace-only (absent from the layer-63 top-8); for those items the lens read is not reducible to next-token prediction, while the leak gate's finding that the intermediate opens narrated work in sampled continuations qualifies every hit that also sits in the top-8. The API leak gate has reached 70 of 105 items: greedy writes the intermediate first in 6, but at T=0.8 the intermediate leaks in 40, leaving 26 admissible. The box sampled pass gates 105 items with 24 admissible.
 
 ## Appendix — per-item ranks (arm A, layers 0–62, top-8; 99 = absent)
 
 | item | intermediate | target | decoy | space rank (noCJK) | best layer | span ≤3 (n, first–last) | L63 rank | nospace rank | target rank | decoy rank | median uninvolved | correct (space) | assert / leak / admissible |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| paper_parens-add-mult | 5 | 20 | 12 | 1 (1) | 43 | 7, 39–62 | 2 | 99 | 1 | 99 | 8 | yes(b) | 0.9 / 1 / 0 |
+| paper_parens-add-mult | 5 | 20 | 12 | 1 (1) | 43 | 7, 39–62 | 2 | 99 | 1 | 99 | 8 | yes(b) | 0.6 / 1 / 0 |
 | paper_parens-sub-mult | 5 | 15 | 12 | 3 (3) | 62 | 1, 62–62 | 2 | 99 | 99 | 99 | 53 | yes(b) | 1.0 / 0 / 1 |
-| paper_mult-parens-add | 7 | 14 | 6 | 1 (1) | 52 | 7, 50–58 | 99 | 99 | 2 | 6 | 6 | yes(b) | 0.5 / 1 / 0 |
-| paper_mult-parens-sub | 3 | 6 | 12 | 3 (3) | 62 | 1, 62–62 | 2 | 99 | 1 | 99 | 53.5 | yes(b) | 0.8 / 0 / 1 |
-| paper_add-mult-right | 12 | 14 | 5 | 1 (1) | 55 | 4, 55–58 | 99 | 99 | 2 | 2 | 2 | yes(b) | 1.0 / 0 / 1 |
-| paper_mult-add-left | 12 | 14 | 6 | 1 (2) | 55 | 4, 55–58 | 99 | 99 | 1 | 2 | 4.5 | yes(b) | 0.8 / 0 / 1 |
-| paper_sub-mult-right | 12 | 5 | 14 | 99 (99) | – | 0 | 99 | 99 | 1 | 99 | 3.5 | yes(b) | 0.7 / 1 / 0 |
-| paper_mult-sub-left | 20 | 12 | – | 1 (2) | 55 | 5, 54–58 | 99 | 99 | 1 | – | 6.5 | yes(b) | 0.7 / 1 / 0 |
+| paper_mult-parens-add | 7 | 14 | 6 | 1 (1) | 52 | 7, 50–58 | 99 | 99 | 2 | 6 | 6 | yes(b) | 0.7 / 1 / 0 |
+| paper_mult-parens-sub | 3 | 6 | 12 | 3 (3) | 62 | 1, 62–62 | 2 | 99 | 1 | 99 | 53.5 | yes(b) | 0.9 / 1 / 0 |
+| paper_add-mult-right | 12 | 14 | 5 | 1 (1) | 55 | 4, 55–58 | 99 | 99 | 2 | 2 | 2 | yes(b) | 0.8 / 1 / 0 |
+| paper_mult-add-left | 12 | 14 | 6 | 1 (2) | 55 | 4, 55–58 | 99 | 99 | 1 | 2 | 4.5 | yes(b) | 1.0 / 0 / 1 |
+| paper_sub-mult-right | 12 | 5 | 14 | 99 (99) | – | 0 | 99 | 99 | 1 | 99 | 3.5 | yes(b) | 0.8 / 1 / 0 |
+| paper_mult-sub-left | 20 | 12 | – | 1 (2) | 55 | 5, 54–58 | 99 | 99 | 1 | – | 6.5 | yes(b) | 0.9 / 1 / 0 |
 | paper_add-sub-left-right | 15 | 12 | 2 | 99 (99) | – | 0 | 99 | 99 | 1 | 5 | 6 | yes(b) | 0.6 / 1 / 0 |
-| paper_sub-add-left-right | 10 | 13 | 8 | 2 (2) | 14 | 1, 14–14 | 99 | 99 | 1 | 3 | 7.5 | yes(b) | 0.9 / 1 / 0 |
-| paper_div-parens-add | 5 | 4 | 10 | 3 (3) | 62 | 1, 62–62 | 4 | 99 | 1 | 4 | 7 | yes(b) | 0.7 / 1 / 0 |
-| paper_parens-add-div | 15 | 5 | – | 1 (99) | 51 | 2, 51–53 | 99 | 99 | 1 | – | 5 | yes(b) | 0.6 / 1 / 0 |
+| paper_sub-add-left-right | 10 | 13 | 8 | 2 (2) | 14 | 1, 14–14 | 99 | 99 | 1 | 3 | 7.5 | yes(b) | 0.6 / 1 / 0 |
+| paper_div-parens-add | 5 | 4 | 10 | 3 (3) | 62 | 1, 62–62 | 4 | 99 | 1 | 4 | 7 | yes(b) | 0.8 / 1 / 0 |
+| paper_parens-add-div | 15 | 5 | – | 1 (99) | 51 | 2, 51–53 | 99 | 99 | 1 | – | 5 | yes(b) | 0.7 / 1 / 0 |
 | paper_parens-sub-div | 12 | 3 | – | 1 (99) | 51 | 1, 51–51 | 99 | 99 | 1 | – | 6.5 | yes(b) | 0.6 / 1 / 0 |
-| paper_div-sub-left | 4 | 3 | – | 1 (1) | 57 | 9, 54–62 | 3 | 5 | 1 | – | 7.5 | yes(b) | 0.5 / 1 / 0 |
-| paper_chain-add-mult-add | 6 | 11 | – | 2 (2) | 53 | 4, 52–56 | 99 | 99 | 2 | – | 7 | yes(b) | 0.8 / 1 / 0 |
-| paper_chain-mult-sub-add | 6 | 7 | – | 1 (1) | 58 | 5, 58–62 | 1 | 8 | 2 | – | 7 | no(b) | 0.0 / 1 / 0 |
-| paper_chain-sub-mult-sub | 6 | 5 | – | 2 (2) | 52 | 3, 52–58 | 8 | 99 | 1 | – | 4.5 | yes(b) | 0.4 / 1 / 0 |
+| paper_div-sub-left | 4 | 3 | – | 1 (1) | 57 | 9, 54–62 | 3 | 5 | 1 | – | 7.5 | yes(b) | 0.4 / 1 / 0 |
+| paper_chain-add-mult-add | 6 | 11 | – | 2 (2) | 53 | 4, 52–56 | 99 | 99 | 2 | – | 7 | yes(b) | 0.9 / 1 / 0 |
+| paper_chain-mult-sub-add | 6 | 7 | – | 1 (1) | 58 | 5, 58–62 | 1 | 8 | 2 | – | 7 | no(b) | 0.2 / 1 / 0 |
+| paper_chain-sub-mult-sub | 6 | 5 | – | 2 (2) | 52 | 3, 52–58 | 8 | 99 | 1 | – | 4.5 | yes(b) | 0.2 / 1 / 0 |
 | paper_nested-add-mult-sub | 9 | 5 | – | 3 (3) | 62 | 1, 62–62 | 2 | 99 | 1 | – | 4.5 | yes(b) | 1.0 / 0 / 1 |
 | paper_nested-mult-add-div | 12 | 3 | – | 99 (99) | – | 0 | 99 | 99 | 1 | – | 7 | yes(b) | 0.8 / 0 / 1 |
-| paper_nested-sub-add-mult | 5 | 15 | – | 3 (3) | 62 | 1, 62–62 | 3 | 99 | 1 | – | 8 | yes(b) | 0.9 / 0 / 1 |
-| paper_word-add-mult | 12 | fourteen | – | 1 (1) | 55 | 3, 55–57 | 99 | 7 | 1 | – | 2.5 | yes(b) | 0.8 / 0 / 1 |
-| paper_word-mult-sub | 15 | seven | – | 5 (6) | 56 | 0 | 99 | 99 | 1 | – | 3.5 | yes(b) | 0.8 / 0 / 1 |
-| paper_word-parens | 5 | twenty | – | 2 (2) | 53 | 4, 52–62 | 3 | 99 | 2 | – | 6 | yes(b) | 0.2 / 0 / 0 |
-| paper_mod-add | 11 | 2 | 1 | 1 (4) | 51 | 3, 51–61 | 99 | 1 | 2 | 1 | 6 | no(b) | 0.0 / 1 / 0 |
-| paper_mod-mult | 16 | 1 | 3 | 1 (3) | 55 | 5, 55–59 | 99 | 4 | 1 | 4 | 4 | no(b) | 0.3 / 1 / 0 |
-| paper_square-sub | 3 | 9 | – | 1 (1) | 39 | 15, 37–62 | 1 | 5 | 1 | – | 6 | no(b) | 0.1 / 1 / 0 |
+| paper_nested-sub-add-mult | 5 | 15 | – | 3 (3) | 62 | 1, 62–62 | 3 | 99 | 1 | – | 8 | yes(b) | 0.8 / 1 / 0 |
+| paper_word-add-mult | 12 | fourteen | – | 1 (1) | 55 | 3, 55–57 | 99 | 7 | 1 | – | 2.5 | yes(b) | 0.9 / 0 / 1 |
+| paper_word-mult-sub | 15 | seven | – | 5 (6) | 56 | 0 | 99 | 99 | 1 | – | 3.5 | yes(b) | 0.8 / 1 / 0 |
+| paper_word-parens | 5 | twenty | – | 2 (2) | 53 | 4, 52–62 | 3 | 99 | 2 | – | 6 | yes(b) | 0.4 / 0 / 0 |
+| paper_mod-add | 11 | 2 | 1 | 1 (4) | 51 | 3, 51–61 | 99 | 1 | 2 | 1 | 6 | no(b) | 0.1 / 1 / 0 |
+| paper_mod-mult | 16 | 1 | 3 | 1 (3) | 55 | 5, 55–59 | 99 | 4 | 1 | 4 | 4 | no(b) | 0.1 / 1 / 0 |
+| paper_square-sub | 3 | 9 | – | 1 (1) | 39 | 15, 37–62 | 1 | 5 | 1 | – | 6 | no(b) | 0.4 / 1 / 0 |
 | paper_mult-mult-left | 6 | 24 | 12 | 3 (3) | 62 | 1, 62–62 | 4 | 99 | 1 | 99 | 6.5 | yes(b) | 1.0 / 0 / 1 |
-| paper_div-div-left | 6 | 3 | 2 | 1 (1) | 60 | 3, 60–62 | 2 | 99 | 3 | 5 | 53.5 | no(b) | 0.1 / 1 / 0 |
-| paper_mult-div-left | 24 | 8 | – | 7 (99) | 57 | 0 | 99 | 99 | 1 | – | 4 | yes(b) | 0.9 / 0 / 1 |
-| paper_div-mult-left | 4 | 8 | 6 | 5 (5) | 62 | 0 | 5 | 99 | 1 | 4 | 7 | yes(b) | 0.8 / 1 / 0 |
+| paper_div-div-left | 6 | 3 | 2 | 1 (1) | 60 | 3, 60–62 | 2 | 99 | 3 | 5 | 53.5 | no(b) | 0.2 / 1 / 0 |
+| paper_mult-div-left | 24 | 8 | – | 7 (99) | 57 | 0 | 99 | 99 | 1 | – | 4 | yes(b) | 1.0 / 0 / 1 |
+| paper_div-mult-left | 4 | 8 | 6 | 5 (5) | 62 | 0 | 5 | 99 | 1 | 4 | 7 | yes(b) | 0.7 / 0 / 0 |
 | paper_mult-div-mult | 12 | 9 | – | 99 (99) | – | 0 | 99 | 99 | 1 | – | 7.5 | yes(b) | 0.7 / 1 / 0 |
 | paper_add-add-add | 3 | 10 | – | 3 (3) | 47 | 1, 47–47 | 4 | 99 | 1 | – | 6 | yes(b) | 1.0 / 0 / 1 |
-| paper_sub-sub-sub | 15 | 10 | – | 99 (99) | – | 0 | 99 | 99 | 2 | – | 7 | yes(b) | 0.9 / 0 / 1 |
-| paper_add-sub-add-sub | 13 | 10 | – | 99 (99) | – | 0 | 99 | 99 | 1 | – | 6 | yes(b) | 0.8 / 0 / 1 |
-| paper_chain-mult-mult-add | 6 | 26 | – | 4 (4) | 62 | 0 | 3 | 99 | 5 | – | 8 | yes(b) | 0.9 / 1 / 0 |
-| paper_nested-add-add-mult | 9 | 18 | – | 6 (6) | 62 | 0 | 5 | 99 | 5 | – | 4.5 | yes(b) | 0.6 / 0 / 0 |
-| paper_nested-mult-sub-add | 7 | 9 | – | 2 (2) | 59 | 4, 59–62 | 3 | 8 | 1 | – | 6.5 | yes(b) | 0.7 / 1 / 0 |
-| paper_nested-div-add-sub | 8 | 5 | – | 5 (5) | 59 | 0 | 8 | 99 | 1 | – | 5 | yes(b) | 0.9 / 0 / 1 |
-| paper_nested-sub-div-mult | 3 | 15 | – | 2 (2) | 62 | 1, 62–62 | 2 | 7 | 1 | – | 53.5 | yes(b) | 0.6 / 1 / 0 |
-| paper_nested4-add-mult-add-div | 12 | 3 | – | 99 (99) | – | 0 | 99 | 99 | 1 | – | 6 | yes(b) | 0.3 / 0 / 0 |
-| paper_nested4-sub-add-mult-sub | 12 | 10 | – | 3 (99) | 54 | 3, 54–56 | 99 | 99 | 1 | – | 3.5 | yes(b) | 0.8 / 1 / 0 |
+| paper_sub-sub-sub | 15 | 10 | – | 99 (99) | – | 0 | 99 | 99 | 2 | – | 7 | yes(b) | 0.7 / 1 / 0 |
+| paper_add-sub-add-sub | 13 | 10 | – | 99 (99) | – | 0 | 99 | 99 | 1 | – | 6 | yes(b) | 0.9 / 0 / 1 |
+| paper_chain-mult-mult-add | 6 | 26 | – | 4 (4) | 62 | 0 | 3 | 99 | 5 | – | 8 | yes(b) | 1.0 / 0 / 1 |
+| paper_nested-add-add-mult | 9 | 18 | – | 6 (6) | 62 | 0 | 5 | 99 | 5 | – | 4.5 | yes(b) | 0.7 / 0 / 0 |
+| paper_nested-mult-sub-add | 7 | 9 | – | 2 (2) | 59 | 4, 59–62 | 3 | 8 | 1 | – | 6.5 | yes(b) | 0.6 / 1 / 0 |
+| paper_nested-div-add-sub | 8 | 5 | – | 5 (5) | 59 | 0 | 8 | 99 | 1 | – | 5 | yes(b) | 0.6 / 0 / 0 |
+| paper_nested-sub-div-mult | 3 | 15 | – | 2 (2) | 62 | 1, 62–62 | 2 | 7 | 1 | – | 53.5 | yes(b) | 0.7 / 1 / 0 |
+| paper_nested4-add-mult-add-div | 12 | 3 | – | 99 (99) | – | 0 | 99 | 99 | 1 | – | 6 | yes(b) | 1.0 / 0 / 1 |
+| paper_nested4-sub-add-mult-sub | 12 | 10 | – | 3 (99) | 54 | 3, 54–56 | 99 | 99 | 1 | – | 3.5 | yes(b) | 0.7 / 0 / 0 |
 | paper_redundant-parens-mult | 6 | 11 | 8 | 1 (1) | 56 | 5, 55–62 | 2 | 99 | 1 | 6 | 6 | yes(b) | 0.9 / 1 / 0 |
 | paper_redundant-parens-div | 3 | 2 | – | 1 (1) | 55 | 12, 39–62 | 1 | 2 | 1 | – | 6.5 | no(b) | 0.4 / 1 / 0 |
-| paper_word-sub-mult | 6 | four | – | 1 (1) | 56 | 5, 50–56 | 6 | 8 | 1 | – | 3 | yes(b) | – |
-| paper_word-add-add | 7 | twelve | – | 3 (3) | 53 | 2, 53–54 | 99 | 99 | 1 | – | 2 | yes(b) | – |
-| paper_word-div-sub | 5 | three | – | 1 (1) | 54 | 6, 54–62 | 3 | 1 | 1 | – | 6 | yes(b) | – |
-| paper_mixed-mult-add | 12 | 14 | – | 1 (2) | 55 | 3, 55–57 | 99 | 99 | 1 | – | 6 | yes(b) | – |
-| paper_mixed-parens-mult | 5 | 15 | – | 3 (3) | 62 | 1, 62–62 | 2 | 99 | 1 | – | 5 | yes(b) | – |
-| paper_mod-sub | 9 | 1 | 3 | 1 (1) | 51 | 12, 51–62 | 1 | 1 | 4 | 1 | 4 | no(b) | – |
-| paper_square-div | 3 | 9 | – | 1 (1) | 55 | 11, 39–62 | 3 | 5 | 1 | – | 5 | no(b) | – |
-| paper_square-mult | 4 | 16 | – | 1 (1) | 55 | 11, 41–62 | 2 | 99 | 1 | – | 6 | yes(b) | – |
-| paper_pystar-add | 3 | 9 | – | 1 (1) | 47 | 10, 40–62 | 2 | 1 | 1 | – | 53.5 | yes(b) | – |
-| paper_pystar-sub | 4 | 16 | – | 1 (1) | 52 | 9, 40–62 | 2 | 3 | 1 | – | 52 | yes(b) | – |
-| paper_floordiv-add | 11 | 3 | – | 2 (4) | 51 | 1, 51–51 | 99 | 99 | 1 | – | 4.5 | yes(b) | – |
-| paper_floordiv-mult | 10 | 3 | – | 99 (99) | – | 0 | 99 | 99 | 1 | – | 7 | yes(b) | – |
-| new_new01 | 12 | 22 | 16 | 1 (3) | 54 | 5, 54–58 | 99 | 99 | 2 | 2 | 2.5 | yes(b) | – |
-| new_new02 | 4 | 8 | 20 | 3 (3) | 62 | 1, 62–62 | 4 | 99 | 1 | 99 | 52.5 | yes(b) | – |
-| new_new03 | 6 | 14 | 10 | 1 (1) | 55 | 7, 53–62 | 2 | 5 | 2 | 4 | 4 | yes(b) | – |
-| new_new04 | 6 | 42 | 35 | 1 (1) | 52 | 9, 51–62 | 3 | 99 | 99 | 99 | 6.5 | yes(b) | – |
-| new_new05 | 6 | 13 | 8 | 2 (2) | 55 | 1, 55–55 | 4 | 99 | 5 | 5 | 52.5 | yes(b) | – |
-| new_new06 | 8 | 4 | 1 | 1 (1) | 53 | 11, 52–62 | 2 | 8 | 1 | 3 | 4 | yes(b) | – |
-| new_new07 | 2 | 11 | 10 | 6 (6) | 62 | 0 | 2 | 99 | 1 | 2 | 7.5 | yes(b) | – |
-| new_new08 | 14 | 42 | 21 | 99 (99) | – | 0 | 99 | 99 | 99 | 99 | 5 | yes(b) | – |
-| new_new09 | 8 | 11 | 5 | 1 (1) | 55 | 7, 53–62 | 2 | 8 | 1 | 4 | 3 | yes(b) | – |
-| new_new10 | 14 | 23 | 16 | 1 (8) | 57 | 2, 54–57 | 99 | 99 | 2 | 3 | 3 | yes(b) | – |
-| new_new11 | 6 | 17 | 28 | 1 (1) | 52 | 8, 51–58 | 7 | 99 | 3 | 99 | 5 | yes(b) | – |
-| new_new12 | 6 | 4 | 14 | 1 (1) | 55 | 5, 53–57 | 99 | 99 | 1 | 99 | 4 | yes(b) | – |
-| new_new13 | 2 | 14 | 49 | 2 (2) | 52 | 4, 52–62 | 2 | 99 | 1 | 99 | 7 | yes(b) | – |
-| new_new14 | 8 | 13 | 7 | 1 (1) | 59 | 8, 55–62 | 2 | 99 | 1 | 3 | 5.5 | yes(b) | – |
-| new_new15 | 36 | 41 | 17 | 1 (99) | 57 | 3, 56–58 | 99 | 99 | 99 | 99 | 3.5 | yes(b) | – |
-| new_new16 | 3 | 7 | 11 | 2 (2) | 59 | 6, 56–62 | 2 | 99 | 1 | 99 | 6 | yes(b) | – |
-| new_new17 | 18 | 90 | 40 | 99 (99) | – | 0 | 99 | 99 | 2 | 99 | 3 | yes(b) | – |
-| new_new18 | 12 | 24 | 20 | 1 (3) | 55 | 3, 53–55 | 99 | 99 | 3 | 1 | 3.5 | yes(b) | – |
-| new_new19 | 16 | 27 | 60 | 1 (2) | 55 | 4, 55–58 | 99 | 99 | 2 | 99 | 3 | yes(b) | – |
-| new_new20 | 13 | 65 | 45 | 1 (2) | 52 | 5, 52–56 | 99 | 99 | 99 | 99 | 52 | yes(b) | – |
-| new_new21 | 9 | 54 | 6 | 2 (2) | 51 | 3, 51–62 | 2 | 99 | 99 | 2 | 53 | yes(b) | – |
-| new_new22 | 14 | 42 | 24 | 99 (99) | – | 0 | 99 | 99 | 99 | 99 | 3.5 | yes(b) | – |
-| new_new23 | 6 | 18 | 15 | 1 (1) | 53 | 6, 39–62 | 3 | 99 | 2 | 99 | 8 | yes(b) | – |
-| new_new24 | 1 | 2 | 14 | 2 (2) | 62 | 1, 62–62 | 2 | 99 | 1 | 99 | 7.5 | yes(b) | – |
-| new_new25 | 21 | 168 | 96 | 7 (99) | 55 | 0 | 99 | 99 | 99 | 99 | 5 | yes(b) | – |
-| new_new26 | 72 | 64 | 4 | 1 (99) | 55 | 5, 54–58 | 99 | 99 | 99 | 3 | 2 | yes(b) | – |
-| new_new27 | 15 | 90 | 36 | 1 (99) | 55 | 2, 54–55 | 99 | 99 | 1 | 99 | 3 | yes(b) | – |
-| new_new28 | 28 | 33 | 12 | 2 (99) | 58 | 1, 58–58 | 99 | 99 | 99 | 99 | 2.5 | yes(b) | – |
-| new_new29 | 21 | 84 | 48 | 99 (99) | – | 0 | 99 | 99 | 99 | 99 | 5 | yes(b) | – |
-| new_new30 | 30 | 29 | 4 | 1 (1) | 56 | 4, 55–58 | 99 | 99 | 1 | 3 | 3 | yes(b) | – |
-| new_new31 | 24 | 29 | 64 | 5 (99) | 56 | 0 | 99 | 99 | 3 | 99 | 1.5 | yes(b) | – |
-| new_new32 | 6 | 48 | 16 | 2 (2) | 51 | 10, 51–62 | 2 | 99 | 99 | 99 | 52 | yes(b) | – |
-| new_new33 | 9 | 3 | 2 | 1 (1) | 51 | 4, 51–62 | 2 | 3 | 1 | 1 | 4 | yes(b) | – |
-| new_new34 | 40 | 51 | 128 | 1 (2) | 55 | 5, 54–58 | 99 | 99 | 99 | 99 | 4 | yes(b) | – |
-| new_new35 | 17 | 10 | 2 | 99 (99) | – | 0 | 99 | 99 | 1 | 4 | 7 | yes(b) | – |
-| new_new36 | 4 | 28 | 49 | 2 (2) | 62 | 3, 53–62 | 2 | 4 | 2 | 99 | 7 | yes(b) | – |
-| new_new37 | 6 | 18 | 15 | 4 (4) | 61 | 0 | 4 | 99 | 5 | 99 | 6.5 | yes(b) | – |
-| new_new38 | 30 | 37 | 100 | 1 (1) | 55 | 5, 55–59 | 99 | 99 | 99 | 99 | 2.5 | yes(b) | – |
-| new_new39 | 19 | 10 | 1 | 99 (99) | – | 0 | 99 | 99 | 3 | 1 | 8 | yes(b) | – |
-| new_new40 | 18 | 15 | 9 | 99 (99) | – | 0 | 99 | 99 | 2 | 2 | 51.5 | yes(b) | – |
-| new_new41 | 22 | 132 | 60 | 1 (99) | 56 | 2, 55–56 | 99 | 99 | 99 | 4 | 5 | yes(b) | – |
-| new_new42 | 4 | 36 | 72 | 2 (2) | 61 | 5, 55–62 | 2 | 99 | 2 | 99 | 7 | yes(b) | – |
-| new_new43 | 14 | 12 | 3 | 99 (99) | – | 0 | 99 | 99 | 1 | 6 | 3 | yes(b) | – |
-| new_new44 | 5 | 40 | 16 | 1 (1) | 53 | 6, 53–62 | 2 | 99 | 1 | 99 | 6.5 | yes(b) | – |
-| new_new45 | 7 | 16 | 14 | 1 (1) | 59 | 5, 57–62 | 3 | 99 | 99 | 99 | 53 | yes(b) | – |
-| new_new46 | 30 | 40 | 60 | 1 (1) | 56 | 6, 52–57 | 99 | 99 | 2 | 99 | 5 | yes(b) | – |
-| new_new47 | 14 | 11 | 8 | 99 (99) | – | 0 | 99 | 99 | 1 | 5 | 6 | yes(b) | – |
-| new_new48 | 6 | 3 | 1 | 2 (2) | 62 | 2, 55–62 | 2 | 99 | 1 | 3 | 5.5 | yes(b) | – |
-| new_new49 | 4 | 3 | 1 | 2 (2) | 46 | 7, 46–62 | 2 | 99 | 1 | 3 | 7.5 | yes(b) | – |
-| new_new50 | 4 | 2 | 8 | 4 (4) | 58 | 0 | 5 | 99 | 1 | 8 | 8 | yes(b) | – |
+| paper_word-sub-mult | 6 | four | – | 1 (1) | 56 | 5, 50–56 | 6 | 8 | 1 | – | 3 | yes(b) | 0.5 / 1 / 0 |
+| paper_word-add-add | 7 | twelve | – | 3 (3) | 53 | 2, 53–54 | 99 | 99 | 1 | – | 2 | yes(b) | 1.0 / 0 / 1 |
+| paper_word-div-sub | 5 | three | – | 1 (1) | 54 | 6, 54–62 | 3 | 1 | 1 | – | 6 | yes(b) | 0.5 / 0 / 0 |
+| paper_mixed-mult-add | 12 | 14 | – | 1 (2) | 55 | 3, 55–57 | 99 | 99 | 1 | – | 6 | yes(b) | 0.7 / 0 / 0 |
+| paper_mixed-parens-mult | 5 | 15 | – | 3 (3) | 62 | 1, 62–62 | 2 | 99 | 1 | – | 5 | yes(b) | 0.4 / 1 / 0 |
+| paper_mod-sub | 9 | 1 | 3 | 1 (1) | 51 | 12, 51–62 | 1 | 1 | 4 | 1 | 4 | no(b) | 0.0 / 1 / 0 |
+| paper_square-div | 3 | 9 | – | 1 (1) | 55 | 11, 39–62 | 3 | 5 | 1 | – | 5 | no(b) | 0.3 / 1 / 0 |
+| paper_square-mult | 4 | 16 | – | 1 (1) | 55 | 11, 41–62 | 2 | 99 | 1 | – | 6 | yes(b) | 0.6 / 1 / 0 |
+| paper_pystar-add | 3 | 9 | – | 1 (1) | 47 | 10, 40–62 | 2 | 1 | 1 | – | 53.5 | yes(b) | 0.7 / 1 / 0 |
+| paper_pystar-sub | 4 | 16 | – | 1 (1) | 52 | 9, 40–62 | 2 | 3 | 1 | – | 52 | yes(b) | 0.8 / 1 / 0 |
+| paper_floordiv-add | 11 | 3 | – | 2 (4) | 51 | 1, 51–51 | 99 | 99 | 1 | – | 4.5 | yes(b) | 0.7 / 1 / 0 |
+| paper_floordiv-mult | 10 | 3 | – | 99 (99) | – | 0 | 99 | 99 | 1 | – | 7 | yes(b) | 0.8 / 1 / 0 |
+| new_new01 | 12 | 22 | 16 | 1 (3) | 54 | 5, 54–58 | 99 | 99 | 2 | 2 | 2.5 | yes(b) | 1.0 / 0 / 1 |
+| new_new02 | 4 | 8 | 20 | 3 (3) | 62 | 1, 62–62 | 4 | 99 | 1 | 99 | 52.5 | yes(b) | 0.5 / 1 / 0 |
+| new_new03 | 6 | 14 | 10 | 1 (1) | 55 | 7, 53–62 | 2 | 5 | 2 | 4 | 4 | yes(b) | 0.8 / 0 / 1 |
+| new_new04 | 6 | 42 | 35 | 1 (1) | 52 | 9, 51–62 | 3 | 99 | 99 | 99 | 6.5 | yes(b) | 0.8 / 1 / 0 |
+| new_new05 | 6 | 13 | 8 | 2 (2) | 55 | 1, 55–55 | 4 | 99 | 5 | 5 | 52.5 | yes(b) | 0.5 / 0 / 0 |
+| new_new06 | 8 | 4 | 1 | 1 (1) | 53 | 11, 52–62 | 2 | 8 | 1 | 3 | 4 | yes(b) | 1.0 / 0 / 1 |
+| new_new07 | 2 | 11 | 10 | 6 (6) | 62 | 0 | 2 | 99 | 1 | 2 | 7.5 | yes(b) | 0.7 / 0 / 0 |
+| new_new08 | 14 | 42 | 21 | 99 (99) | – | 0 | 99 | 99 | 99 | 99 | 5 | yes(b) | 0.8 / 1 / 0 |
+| new_new09 | 8 | 11 | 5 | 1 (1) | 55 | 7, 53–62 | 2 | 8 | 1 | 4 | 3 | yes(b) | 1.0 / 0 / 1 |
+| new_new10 | 14 | 23 | 16 | 1 (8) | 57 | 2, 54–57 | 99 | 99 | 2 | 3 | 3 | yes(b) | 0.9 / 1 / 0 |
+| new_new11 | 6 | 17 | 28 | 1 (1) | 52 | 8, 51–58 | 7 | 99 | 3 | 99 | 5 | yes(b) | 0.8 / 0 / 1 |
+| new_new12 | 6 | 4 | 14 | 1 (1) | 55 | 5, 53–57 | 99 | 99 | 1 | 99 | 4 | yes(b) | 0.8 / 1 / 0 |
+| new_new13 | 2 | 14 | 49 | 2 (2) | 52 | 4, 52–62 | 2 | 99 | 1 | 99 | 7 | yes(b) | 0.8 / 1 / 0 |
+| new_new14 | 8 | 13 | 7 | 1 (1) | 59 | 8, 55–62 | 2 | 99 | 1 | 3 | 5.5 | yes(b) | 0.6 / 0 / 0 |
+| new_new15 | 36 | 41 | 17 | 1 (99) | 57 | 3, 56–58 | 99 | 99 | 99 | 99 | 3.5 | yes(b) | 0.9 / 1 / 0 |
+| new_new16 | 3 | 7 | 11 | 2 (2) | 59 | 6, 56–62 | 2 | 99 | 1 | 99 | 6 | yes(b) | 0.7 / 1 / 0 |
+| new_new17 | 18 | 90 | 40 | 99 (99) | – | 0 | 99 | 99 | 2 | 99 | 3 | yes(b) | 0.6 / 1 / 0 |
+| new_new18 | 12 | 24 | 20 | 1 (3) | 55 | 3, 53–55 | 99 | 99 | 3 | 1 | 3.5 | yes(b) | 0.8 / 1 / 0 |
+| new_new19 | 16 | 27 | 60 | 1 (2) | 55 | 4, 55–58 | 99 | 99 | 2 | 99 | 3 | yes(b) | 0.7 / 1 / 0 |
+| new_new20 | 13 | 65 | 45 | 1 (2) | 52 | 5, 52–56 | 99 | 99 | 99 | 99 | 52 | yes(b) | 0.8 / 1 / 0 |
+| new_new21 | 9 | 54 | 6 | 2 (2) | 51 | 3, 51–62 | 2 | 99 | 99 | 2 | 53 | yes(b) | 0.8 / 1 / 0 |
+| new_new22 | 14 | 42 | 24 | 99 (99) | – | 0 | 99 | 99 | 99 | 99 | 3.5 | yes(b) | 0.8 / 1 / 0 |
+| new_new23 | 6 | 18 | 15 | 1 (1) | 53 | 6, 39–62 | 3 | 99 | 2 | 99 | 8 | yes(b) | 0.7 / 1 / 0 |
+| new_new24 | 1 | 2 | 14 | 2 (2) | 62 | 1, 62–62 | 2 | 99 | 1 | 99 | 7.5 | yes(b) | 0.8 / 1 / 0 |
+| new_new25 | 21 | 168 | 96 | 7 (99) | 55 | 0 | 99 | 99 | 99 | 99 | 5 | yes(b) | 0.5 / 1 / 0 |
+| new_new26 | 72 | 64 | 4 | 1 (99) | 55 | 5, 54–58 | 99 | 99 | 99 | 3 | 2 | yes(b) | 0.7 / 1 / 0 |
+| new_new27 | 15 | 90 | 36 | 1 (99) | 55 | 2, 54–55 | 99 | 99 | 1 | 99 | 3 | yes(b) | 0.7 / 1 / 0 |
+| new_new28 | 28 | 33 | 12 | 2 (99) | 58 | 1, 58–58 | 99 | 99 | 99 | 99 | 2.5 | yes(b) | 1.0 / 0 / 1 |
+| new_new29 | 21 | 84 | 48 | 99 (99) | – | 0 | 99 | 99 | 99 | 99 | 5 | yes(b) | 0.4 / 0 / 0 |
+| new_new30 | 30 | 29 | 4 | 1 (1) | 56 | 4, 55–58 | 99 | 99 | 1 | 3 | 3 | yes(b) | 1.0 / 0 / 1 |
+| new_new31 | 24 | 29 | 64 | 5 (99) | 56 | 0 | 99 | 99 | 3 | 99 | 1.5 | yes(b) | 0.7 / 1 / 0 |
+| new_new32 | 6 | 48 | 16 | 2 (2) | 51 | 10, 51–62 | 2 | 99 | 99 | 99 | 52 | yes(b) | 0.9 / 1 / 0 |
+| new_new33 | 9 | 3 | 2 | 1 (1) | 51 | 4, 51–62 | 2 | 3 | 1 | 1 | 4 | yes(b) | 0.6 / 1 / 0 |
+| new_new34 | 40 | 51 | 128 | 1 (2) | 55 | 5, 54–58 | 99 | 99 | 99 | 99 | 4 | yes(b) | 0.8 / 1 / 0 |
+| new_new35 | 17 | 10 | 2 | 99 (99) | – | 0 | 99 | 99 | 1 | 4 | 7 | yes(b) | 0.6 / 1 / 0 |
+| new_new36 | 4 | 28 | 49 | 2 (2) | 62 | 3, 53–62 | 2 | 4 | 2 | 99 | 7 | yes(b) | 0.6 / 1 / 0 |
+| new_new37 | 6 | 18 | 15 | 4 (4) | 61 | 0 | 4 | 99 | 5 | 99 | 6.5 | yes(b) | 0.6 / 0 / 0 |
+| new_new38 | 30 | 37 | 100 | 1 (1) | 55 | 5, 55–59 | 99 | 99 | 99 | 99 | 2.5 | yes(b) | 0.6 / 1 / 0 |
+| new_new39 | 19 | 10 | 1 | 99 (99) | – | 0 | 99 | 99 | 3 | 1 | 8 | yes(b) | 0.9 / 0 / 1 |
+| new_new40 | 18 | 15 | 9 | 99 (99) | – | 0 | 99 | 99 | 2 | 2 | 51.5 | yes(b) | 0.7 / 1 / 0 |
+| new_new41 | 22 | 132 | 60 | 1 (99) | 56 | 2, 55–56 | 99 | 99 | 99 | 4 | 5 | yes(b) | 0.9 / 1 / 0 |
+| new_new42 | 4 | 36 | 72 | 2 (2) | 61 | 5, 55–62 | 2 | 99 | 2 | 99 | 7 | yes(b) | 0.8 / 1 / 0 |
+| new_new43 | 14 | 12 | 3 | 99 (99) | – | 0 | 99 | 99 | 1 | 6 | 3 | yes(b) | 0.8 / 0 / 1 |
+| new_new44 | 5 | 40 | 16 | 1 (1) | 53 | 6, 53–62 | 2 | 99 | 1 | 99 | 6.5 | yes(b) | 0.6 / 1 / 0 |
+| new_new45 | 7 | 16 | 14 | 1 (1) | 59 | 5, 57–62 | 3 | 99 | 99 | 99 | 53 | yes(b) | 0.3 / 1 / 0 |
+| new_new46 | 30 | 40 | 60 | 1 (1) | 56 | 6, 52–57 | 99 | 99 | 2 | 99 | 5 | yes(b) | 0.7 / 1 / 0 |
+| new_new47 | 14 | 11 | 8 | 99 (99) | – | 0 | 99 | 99 | 1 | 5 | 6 | yes(b) | 0.8 / 0 / 1 |
+| new_new48 | 6 | 3 | 1 | 2 (2) | 62 | 2, 55–62 | 2 | 99 | 1 | 3 | 5.5 | yes(b) | 0.9 / 1 / 0 |
+| new_new49 | 4 | 3 | 1 | 2 (2) | 46 | 7, 46–62 | 2 | 99 | 1 | 3 | 7.5 | yes(b) | 1.0 / 0 / 1 |
+| new_new50 | 4 | 2 | 8 | 4 (4) | 58 | 0 | 5 | 99 | 1 | 8 | 8 | yes(b) | 0.8 / 0 / 1 |
 
